@@ -50,9 +50,33 @@ public class Lang extends org.luwrain.core.Lang
 	    return "Элементы выше отсутствуют";
 	case LangStatic.NO_ITEMS_BELOW:
 	    return "Элементы ниже отсутствуют";
-	case LangStatic.EMPTY_TREE:
+	case LangStatic.LIST_NO_CONTENT:
+	    return "Элементы в списке отсутствуют";
+	case LangStatic.COPIED_LINES:
+	    return "Скопировано строк:";
+	case LangStatic.CUT_LINES:
+	    return "Вырезано строк:";
+	case LangStatic.POPUP_IMPORTANT_LOCATIONS_NAME:
+	    return "Выберите местоположение";
+
+	    //Commander;
+	case LangStatic.COMMANDER_NO_CONTENT:
+	    return "Содержимое папки недоступно";
+	case LangStatic.COMMANDER_SELECTED_DIRECTORY:
+	    return "выделенная папка";
+	case LangStatic.COMMANDER_SELECTED:
+	    return "выделено";
+	case LangStatic.COMMANDER_DIRECTORY:
+	    return "Папка";
+	case LangStatic.COMMANDER_PARENT_DIRECTORY:
+	    return "На уровень вверх";
+	case LangStatic.COMMANDER_USER_HOME:
+	    return "Домашний каталог";
+
+	    //Tree;
+	case LangStatic.TREE_NO_CONTENT:
 	    return "Пустое дерево";
-	case LangStatic.EMPTY_TREE_ITEM:
+	case LangStatic.TREE_EMPTY_ITEM:
 	    return "Пустой элемент дерева";
 	case LangStatic.TREE_EXPANDED:
 	    return "Раскрыто";
@@ -61,42 +85,21 @@ public class Lang extends org.luwrain.core.Lang
 	case LangStatic.TREE_LEVEL:
 	    return "Уровень";
 
-	    //	case LangStatic.NO_REQUESTED_ACTION:
-	    //	    return "Выбранное Вами действие недоступно в системе";
-	    //	case LangStatic.NO_ACTIVE_AREA:
-	    //	    return "Нет активного объекта";
-	    //	case LangStatic.APPLICATION_INTERNAL_ERROR:
-	    //	    return "Выполнение операции было прервано из-за внутренней ошибки приложения";
-	    //	case LangStatic.APPLICATION_CLOSE_ERROR_HAS_POPUP:
-	    //	    return "Перед закрытием приложения необходимо закрыть его всплывающие окна";
-	    //	case LangStatic.INSUFFICIENT_MEMORY_FOR_APP_LAUNCH:
-	    //	    return "Недостаточно памяти для запуска приложения";
-	    //	case LangStatic.UNEXPECTED_ERROR_AT_APP_LAUNCH:
-	    //	    return "Запуск прерван из-за внутренней ошибки приложения";
-	    //	case LangStatic.START_WORK_FROM_MAIN_MENU:
-	    //	    return "Начните работу с главного меню";
-	    //	case LangStatic.NO_LAUNCHED_APPS:
-	    //	    return "Все приложения закрыты";
-	case LangStatic.LIST_NO_CONTENT:
-	    return "Элементы в списке отсутствуют";
-	    //	case LangStatic.FONT_SIZE:
-	    //	    return "Размер шрифта:";
-	    //	case LangStatic.QUIT_CONFIRM_NAME:
-	    //	    return "Завершение работы";
-	    //	case LangStatic.QUIT_CONFIRM:
-	    //	    return "Вы действительно хотите завершить работу в Luwrain?";
-	    //	case LangStatic.OPEN_POPUP_NAME:
-	    //	    return "Открытие файла";
-	    //	case LangStatic.OPEN_POPUP_PREFIX:
-	    //	    return "Введите имя файла для открытия:";
-	case LangStatic.NO_TABLE_ROWS:
+	    //Table;
+	case LangStatic.TABLE_NO_ROWS:
 	    return "Строки в таблице отсутствуют"; 
-	case LangStatic.NO_TABLE_ROWS_ABOVE:
+	case LangStatic.TABLE_NO_ROWS_ABOVE:
 	    return "Строки выше отсутствуют"; 
-	case LangStatic.NO_TABLE_ROWS_BELOW:
+	case LangStatic.TABLE_NO_ROWS_BELOW:
 	    return "Строки ниже отсутствуют";
-	case LangStatic.END_OF_TABLE_COL:
+	case LangStatic.TABLE_END_OF_COL:
 	    return "Конец столбца";
+	case LangStatic.TABLE_BEGIN_OF_ROW:
+	    return "Начало строки";
+	case LangStatic.TABLE_END_OF_ROW:
+	    return "Конец строки";
+
+	    //Message;
 	case LangStatic.MESSAGE:
 	    return "Сообщение";
 	case LangStatic.MESSAGE_TO:
@@ -113,26 +116,9 @@ public class Lang extends org.luwrain.core.Lang
 	    return "Прикрепления файла";
 	case LangStatic.MESSAGE_ATTACHMENT_POPUP_PREFIX:
 	    return "Файл для прикрепления:";
-	case LangStatic.COPIED_LINES:
-	    return "Скопировано строк:";
-	case LangStatic.CUT_LINES:
-	    return "Вырезано строк:";
-	case LangStatic.COMMANDER_NO_CONTENT:
-	    return "Содержимое папки недоступно";
-	case LangStatic.COMMANDER_SELECTED_DIRECTORY:
-	    return "выделенная папка";
-	case LangStatic.COMMANDER_SELECTED:
-	    return "выделено";
-	case LangStatic.COMMANDER_DIRECTORY:
-	    return "Папка";
-	case LangStatic.COMMANDER_PARENT_DIRECTORY:
-	    return "На уровень вверх";
-	case LangStatic.COMMANDER_USER_HOME:
-	    return "Домашний каталог";
-	case LangStatic.POPUP_IMPORTANT_LOCATIONS_NAME:
-	    return "Выберите местоположение";
+
 	default:
-	    return "#Неизвестный идентификатор строки?#";
+	    return "#Неизвестный идентификатор строки " + code + "#";
 	}
     }
 

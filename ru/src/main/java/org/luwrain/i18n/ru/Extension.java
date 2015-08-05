@@ -33,5 +33,20 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	i18nExt.addStrings("ru", org.luwrain.desktop.App.STRINGS_NAME, new Desktop());
 	i18nExt.addStrings("ru", "luwrain.environment", new Environment());
 	i18nExt.addStrings("ru", org.luwrain.app.cpanel.ControlPanelApp.STRINGS_NAME, new Control());
+
+	//Mail
+	i18nExt.addCommandTitle("ru", "mail", "Почта");
+	i18nExt.addStrings("ru", "luwrain.mail", new Mail());
+
+	//essage;
+	i18nExt.addCommandTitle("ru", "message", "Новое сообщение");
+	i18nExt.addStrings("ru", "luwrain.message", new Message());
+
+	//fetch;
+	i18nExt.addCommandTitle("ru", "fetch", "Доставка почты и новостей");
+	i18nExt.addStrings("ru", "luwrain.fetch", new Fetch());
+
+
+
     }
 }
