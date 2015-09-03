@@ -16,10 +16,17 @@
 
 package org.luwrain.i18n.ru;
 
-class Desktop implements org.luwrain.desktop.Strings
+import java.util.*;
+
+class AppTerm implements org.luwrain.app.term.Strings
 {
     @Override public String appName()
     {
-	return "Рабочий стол";
+	return "Терминал";
+    }
+
+    @Override public String areaName()
+    {
+	return "Терминал";
     }
 }
