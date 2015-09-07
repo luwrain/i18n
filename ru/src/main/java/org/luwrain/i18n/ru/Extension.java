@@ -64,5 +64,20 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
     	//notepad;
 	i18nExt.addCommandTitle("ru", "notepad", "Блокнот");
 	i18nExt.addStrings("ru", "luwrain.notepad", new AppNotepad());
+
+    	//commander;
+	i18nExt.addCommandTitle("ru", "commander", "Обзор файлов и папок");
+	i18nExt.addStrings("ru", "luwrain.commander", new AppCommander());
+
+    	//reader;
+	i18nExt.addCommandTitle("ru", "reader", "Просмотр документов");
+	i18nExt.addStrings("ru", "luwrain.reader", new AppReader());
+
+    	//wiki;
+	i18nExt.addCommandTitle("ru", "wiki", "Поиск в Википедии");
+	i18nExt.addStrings("ru", "luwrain.wiki", new AppWiki());
+
+
+
     }
 }

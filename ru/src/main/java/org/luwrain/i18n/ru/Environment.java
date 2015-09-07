@@ -20,6 +20,34 @@ import org.luwrain.os.Location;
 
 class Environment implements org.luwrain.core.Strings
 {
+    @Override public String noClipboardContent()
+    {
+	return "Нет данных в буфере обмена";
+    }
+
+    @Override public String regionPointSet()
+    {
+	return "Отметка установлена ";
+    }
+
+    @Override public String linesCopied(int linesNum)
+    {
+	if (linesNum < 1)
+	    return "Нет скопированных строк";
+	if (linesNum == 1)
+	    return "Скопирована одна строка";
+	return "Скопировано строк: " + linesNum;
+    }
+
+    @Override public String linesInserted(int linesNum)
+    {
+	if (linesNum < 1)
+	    return "Нет скопированных строк";
+	if (linesNum == 1)
+	    return "Вставлена одна строка";
+	return "Вставлено строк: " + linesNum;
+    }
+
     @Override public String quitPopupName()
     {
 	return "Завершение работы";
