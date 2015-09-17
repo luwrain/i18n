@@ -45,6 +45,11 @@ return "Столбец " + col + " " + text;
 	return "Ненумерованный элемент " + text;
     }
 
+    @Override public String paragraphIntroduction(String text)
+    {
+	return "Параграф " + text;
+    }
+
     @Override public String errorOpeningFile()
     {
 	return "Произошла ошибка открытия документа";
@@ -57,6 +62,11 @@ return "Столбец " + col + " " + text;
 
     @Override public String noContent()
     {
-	return "Содержимое документа отсутствует";
+	return "Нажмите ENTER для открытия документа";
+    }
+
+    @Override public String fetchingContent()
+    {
+	return "Идёт загрузка документа, подождите, пожалуйста";
     }
 }

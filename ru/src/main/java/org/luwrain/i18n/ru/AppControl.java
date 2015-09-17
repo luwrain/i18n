@@ -20,33 +20,44 @@ import java.util.*;
 
 class AppControl implements org.luwrain.app.cpanel.Strings
 {
-    public String groupsAreaName()
+    @Override public String appName()
+    {
+	return "Панель управления";
+    }
+
+    @Override public String sectionsAreaName()
     {
 	return "Группы параметров";
     }
 
-    public String optionsAreaName()
+    @Override public String sectName(int id)
     {
-	return "Изменение параметров";
-    }
-
-    public String rootItemName()
-    {
-	return "Конфигурация Luwrain";
-    }
-
-    public String interactionItemName()
-    {
-	return "Взаимодействие и визуализация";
-    }
-
-    public String mailItemName()
-    {
-	return "Электронная почта";
-    }
-
-    public String newsItemName()
-    {
-	return "Новости";
+	switch(id)
+	{
+	case SYS_DEVICES:
+	    return "Системные устройства";
+	case STORAGE_DEVICES:
+	    return "Устройства хранения";
+	case HARDWARE:
+	    return "Оборудование";
+	case APPS:
+	    return "Приложения";
+	case SPEECH:
+	    return "Речь";
+	case SOUNDS:
+	    return "Звук";
+	case KEYBOARD:
+	    return "Клавиатура";
+	case UI :
+	    return "Интерфейс";
+	case EXTENSIONS :
+	    return "Расширения";
+	case NETWORK :
+	    return "Сеть";
+	case WORKERS :
+	    return "Фоновые задачи";
+	default:
+	    return "Неизвестный тип секции " + id + "#";
+	}
     }
 }
