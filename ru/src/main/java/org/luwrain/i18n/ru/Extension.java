@@ -22,7 +22,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 {
     @Override public void i18nExtension(Luwrain luwrain, I18nExtension i18nExt)
     {
-	i18nExt.addLang("ru", new Lang());
+	i18nExt.addLang("ru", new Lang(i18nExt.getStaticValueNames()));
 
 	//Some basic commands;
 	i18nExt.addCommandTitle("ru", "quit", "Завершить работу в Luwrain");
