@@ -16,6 +16,8 @@
 
 package org.luwrain.i18n.ru;
 
+import java.util.Date;
+
 class AppMail implements org.luwrain.app.mail.Strings
 {
     @Override public String appName()
@@ -99,5 +101,11 @@ class AppMail implements org.luwrain.app.mail.Strings
     @Override public String firstSummaryLine()
     {
 	return "Сообщение выше отсутствуют";
+    }
+
+    @Override public String passedTimeBrief(Date date)
+    {
+	final DateUtils utils = new DateUtils();
+	return utils.passedTimeBrief(date) + " назад";
     }
 }

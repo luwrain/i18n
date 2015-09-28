@@ -20,64 +20,36 @@ import org.luwrain.core.*;
 
 public class Extension extends org.luwrain.core.extensions.EmptyExtension
 {
-    @Override public void i18nExtension(Luwrain luwrain, I18nExtension i18nExt)
+    @Override public void i18nExtension(Luwrain luwrain, I18nExtension ext)
     {
-	i18nExt.addLang("ru", new Lang(i18nExt.getStaticValueNames()));
+	ext.addLang("ru", new Lang(ext.getStaticValueNames()));
 
-	//Some basic commands;
-	i18nExt.addCommandTitle("ru", "quit", "Завершить работу в Luwrain");
-	i18nExt.addCommandTitle("ru", "shutdown", "Выключить компьютер");
+	ext.addCommandTitle("ru", "quit", "Завершить работу в Luwrain");
+	ext.addCommandTitle("ru", "shutdown", "Выключить компьютер");
 
-	//Basic strings;
-	i18nExt.addStrings("ru", "main-menu", new MainMenu());
-	i18nExt.addStrings("ru", org.luwrain.desktop.App.STRINGS_NAME, new Desktop());
-	i18nExt.addStrings("ru", "luwrain.environment", new Environment());
+	ext.addStrings("ru", "main-menu", new MainMenu());
+	ext.addStrings("ru", org.luwrain.desktop.App.STRINGS_NAME, new Desktop());
+	ext.addStrings("ru", "luwrain.environment", new Environment());
 
-	//Control panel;
-	i18nExt.addCommandTitle("ru", "control-panel", "Панель управления");
-	i18nExt.addStrings("ru", org.luwrain.app.cpanel.ControlPanelApp.STRINGS_NAME, new AppControl());
+	save("control-panel", "Панель управления", new AppControl(), ext);
+	save("registry", "Редактор реестра", new AppRegistry(), ext);
+	save("term", "Терминал", new AppTerm(), ext);
+	save("mail", "Почта", new AppMail(), ext);
+	save("message", "Сообщение", new AppMessage(), ext);
+	save("fetch", "Доставка почты и новостей", new AppFetch(), ext);
+	save("contacts", "Адресная книга", new AppContacts(), ext);
+	save("notepad", "Блокнот", new AppNotepad(), ext);
+	save("commander", "Обзор файлов и папок", new AppCommander(), ext);
+	save("reader", "Просмотр документов", new AppReader(), ext);
+	save("wiki", "Поиск в Википедии", new AppWiki(), ext);
+	save("twitter", "Твиттер", new AppTwitter(), ext);
+	save("news", "Новости", new AppNews(), ext);
+    }
 
-	//Registry;
-	i18nExt.addCommandTitle("ru", "registry", "Редактор реестра");
-	i18nExt.addStrings("ru", org.luwrain.app.registry.RegistryApp.STRINGS_NAME, new AppRegistry());
-
-	//term;
-	i18nExt.addCommandTitle("ru", "term", "Терминал");
-	i18nExt.addStrings("ru", "luwrain.term", new AppTerm());
-
-	//Mail
-	i18nExt.addCommandTitle("ru", "mail", "Почта");
-	i18nExt.addStrings("ru", "luwrain.mail", new AppMail());
-
-	//essage;
-	i18nExt.addCommandTitle("ru", "message", "Новое сообщение");
-	i18nExt.addStrings("ru", "luwrain.message", new AppMessage());
-
-	//fetch;
-	i18nExt.addCommandTitle("ru", "fetch", "Доставка почты и новостей");
-	i18nExt.addStrings("ru", "luwrain.fetch", new AppFetch());
-
-	//contacts;
-	i18nExt.addCommandTitle("ru", "contacts", "Адресная книга");
-	i18nExt.addStrings("ru", "luwrain.contacts", new AppContacts());
-
-    	//notepad;
-	i18nExt.addCommandTitle("ru", "notepad", "Блокнот");
-	i18nExt.addStrings("ru", "luwrain.notepad", new AppNotepad());
-
-    	//commander;
-	i18nExt.addCommandTitle("ru", "commander", "Обзор файлов и папок");
-	i18nExt.addStrings("ru", "luwrain.commander", new AppCommander());
-
-    	//reader;
-	i18nExt.addCommandTitle("ru", "reader", "Просмотр документов");
-	i18nExt.addStrings("ru", "luwrain.reader", new AppReader());
-
-    	//wiki;
-	i18nExt.addCommandTitle("ru", "wiki", "Поиск в Википедии");
-	i18nExt.addStrings("ru", "luwrain.wiki", new AppWiki());
-
-
-
+    private void save(String name, String command,
+		 Object strings, I18nExtension ext)
+    {
+ 	ext.addCommandTitle("ru", name, command);
+	ext.addStrings("ru", "luwrain." + name, strings);
     }
 }

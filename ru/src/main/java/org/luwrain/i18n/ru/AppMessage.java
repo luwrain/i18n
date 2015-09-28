@@ -16,16 +16,13 @@
 
 package org.luwrain.i18n.ru;
 
+import java.io.*;
+
 class AppMessage implements org.luwrain.app.message.Strings
 {
     @Override public String appName()
     {
 	return "Сообщение";
-    }
-
-    @Override public String noMailStoring()
-    {
-	return "Нет подключения для хранения электронной почты";
     }
 
     @Override public String withoutSubject()
@@ -41,5 +38,40 @@ class AppMessage implements org.luwrain.app.message.Strings
     @Override public String errorSendingMessage()
     {
 	return "Произошла ошибка при отправлении сообщения";
+    }
+
+    @Override public String to()
+    {
+	return "Кому:";
+    }
+
+    @Override public String cc()
+    {
+	return "Копия:";
+    }
+
+    @Override public String subject()
+    {
+	return "Тема:";
+    }
+
+    @Override public String enterMessageBelow()
+    {
+	return "Текст сообщения ниже:";
+    }
+
+    @Override public String attachmentPopupName()
+    {
+	return "Новое прикрепление";
+    }
+
+    @Override public String attachmentPopupPrefix()
+    {
+	return "Выберите файл для прикрепления:";
+    }
+
+    @Override public String attachment(File f)
+    {
+	return "Прикрепление " + f.getName() + " (" + f.getAbsolutePath() + ")";
     }
 }

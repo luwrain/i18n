@@ -123,4 +123,23 @@ staticValues[code] == null)
 	    return Character.getName(ch);
 	}
     }
+
+    static String afterNum(int num,
+			   String afterZero,
+			   String afterOne,
+			   String afterTwo)
+    {
+	if (num < 0)
+	    throw new IllegalArgumentException("num may not be negative");
+	if (num == 0 || num % 10 == 0)
+	    return afterZero;
+	if (num % 100 >= 11 && num % 100 <= 19)
+	    return afterZero;
+	if (num % 10 == 1)
+	    return afterOne;
+	if (num % 10 >= 2 && num % 10 < 4)
+	    return afterTwo;
+	return afterZero;
+    }
+
 }

@@ -185,36 +185,12 @@ class AppCommander implements org.luwrain.app.commander.Strings
 
     private String numberOfItems(int num)
     {
-	return "" + num + " " + afterNum(num, "элементов", "элемент", "элемента");
+	return "" + num + " " + Lang.afterNum(num, "элементов", "элемент", "элемента");
     }
 
     private String numberOfFiles(int num)
     {
-	return "" + num + " " + afterNum(num, "файлов", "файл", "файла");
-    }
-
-    private String afterNum(int num,
-			    String afterZero,
-			    String afterOne,
-			    String afterTwo)
-    {
-	if (num < 0)
-	    throw new IllegalArgumentException("num may not be negative");
-	if (afterZero == null)
-	    throw new NullPointerException("afterZero may not be null");
-	if (afterOne == null)
-	    throw new NullPointerException("afterOne may not be null");
-	if (afterTwo == null)
-	    throw new NullPointerException("afterTwo may not be null");
-	if (num == 0 || num % 10 == 0)
-	    return afterZero;
-	if (num % 100 >= 11 && num % 100 <= 19)
-	    return afterZero;
-	if (num % 10 == 1)
-	    return afterOne;
-	if (num % 10 >= 2 && num % 10 < 4)
-	    return afterTwo;
-	return afterZero;
+	return "" + num + " " + Lang.afterNum(num, "файлов", "файл", "файла");
     }
 
     @Override public String bytesNum(long num)
@@ -242,7 +218,6 @@ class AppCommander implements org.luwrain.app.commander.Strings
 	}
 	return "" + num + "Б";
     }
-
 
 
 }
