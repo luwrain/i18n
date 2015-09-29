@@ -74,4 +74,24 @@ class AppMessage implements org.luwrain.app.message.Strings
     {
 	return "Прикрепление " + f.getName() + " (" + f.getAbsolutePath() + ")";
     }
+
+    @Override public String contactsFolderTitle(String origTitle)
+    {
+	switch(origTitle)
+	{
+	case "luwrain-contacts-folder-root":
+	    return "Адресная книга";
+	case "luwrain-contacts-folder-personal":
+	    return "Личные контакты";
+	case "luwrain-contacts-folder-job":
+	    return "Работа";
+	case "luwrain-contacts-folder-organizations":
+	    return "Организации";
+	case "luwrain-contacts-folder-lists":
+	    return "Списки рассылок";
+	default:
+	    return origTitle;
+	}
+    }
+
 }
