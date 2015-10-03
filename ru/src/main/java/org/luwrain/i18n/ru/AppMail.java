@@ -108,4 +108,10 @@ class AppMail implements org.luwrain.app.mail.Strings
 	final DateUtils utils = new DateUtils();
 	return utils.passedTimeBrief(date) + " назад";
     }
+
+    @Override public String messageSentDate(Date date)
+    {
+	final DateUtils utils = new DateUtils();
+	return DateUtils.dateTime(date) + " (" + utils.passedTimeFull(date) + " назад)";
+    }
 }

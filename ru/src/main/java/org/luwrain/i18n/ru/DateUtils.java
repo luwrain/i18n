@@ -61,7 +61,7 @@ class DateUtils
 	if (daysTotal > 0)
 	    return daysTotal + " " + Lang.afterNum((int)daysTotal, "дней", "день", "дня");
 	if (hoursTotal > 0)
-	    return hoursTotal + " " + Lang.afterNum((int)hoursTotal, "часов", "чась", "часа");
+	    return hoursTotal + " " + Lang.afterNum((int)hoursTotal, "часов", "час", "часа");
 	if (minutesTotal > 0)
 	    return minutesTotal + " " + Lang.afterNum((int)minutesTotal, "минут", "минута", "минуты");
 	if (secondsTotal > 0)
@@ -69,14 +69,15 @@ class DateUtils
 	return "меньше секунды";
     }
 
-    public static String dateTime(Date moment)
+    static String dateTime(Date moment)
     {
 	if (moment == null)
 	    throw new NullPointerException("moment may not be null");
-	String res = addZeroes(moment.getHours(), 2) + ":" + addZeroes(moment.getMinutes(), 2);
-	res += ", ";
-	res += moment.getDate() + " " + month(moment.getMonth() + 1) + " " + (moment.getYear() + 1900) + "г.";
-	return res;
+	final StringBuilder b = new StringBuilder();
+	b.append(addZeroes(moment.getHours(), 2) + ":" + addZeroes(moment.getMinutes(), 2));
+	b.append(", ");
+	b.append(moment.getDate() + " " + month(moment.getMonth() + 1) + " " + (moment.getYear() + 1900) + "г.");
+	return b.toString();
     }
 
     static private String month(int m)
@@ -112,7 +113,7 @@ class DateUtils
 	}
     }
 
-    private static String  addZeroes(int num, int z)
+    static private String  addZeroes(int num, int z)
     {
 	String res = "" + num;
 	while (res.length() < z)
