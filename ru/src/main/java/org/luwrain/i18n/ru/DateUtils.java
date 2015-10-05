@@ -17,6 +17,7 @@
 package org.luwrain.i18n.ru;
 
 import java.util.*;
+import org.luwrain.core.NullCheck;
 
 class DateUtils
 {
@@ -79,6 +80,13 @@ class DateUtils
 	b.append(moment.getDate() + " " + month(moment.getMonth() + 1) + " " + (moment.getYear() + 1900) + "г.");
 	return b.toString();
     }
+
+    static String date(Date moment)
+    {
+	NullCheck.notNull(moment, "moment");
+return moment.getDate() + " " + month(moment.getMonth() + 1) + " " + (moment.getYear() + 1900) + "г.";
+    }
+
 
     static private String month(int m)
     {
