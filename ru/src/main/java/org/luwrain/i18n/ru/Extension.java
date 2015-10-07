@@ -44,6 +44,8 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("wiki", "Поиск в Википедии", new AppWiki(), ext);
 	save("twitter", "Твиттер", new AppTwitter(), ext);
 	save("news", "Новости", new AppNews(), ext);
+
+ 	ext.addCommandTitle("ru", "reader-search-google", "Поиск в Google");
     }
 
     private void save(String name, String command,
