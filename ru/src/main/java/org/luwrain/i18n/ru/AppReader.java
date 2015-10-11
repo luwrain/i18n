@@ -55,14 +55,14 @@ return "Столбец " + col + " " + text;
 	return "Произошла ошибка открытия документа";
     }
 
-    @Override public String errorFetching()
+    @Override public String errorFetching(String comment)
     {
-	return "Доставка запрошенной страницы невозможна";
+	return "Доставка запрошенной страницы невозможна:" + comment;
     }
 
     @Override public String noContent()
     {
-	return "Нажмите ENTER для открытия документа";
+	return "Откройте документ при помощи контекстного меню";
     }
 
     @Override public String fetchingContent()

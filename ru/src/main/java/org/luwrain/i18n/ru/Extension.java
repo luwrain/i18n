@@ -46,6 +46,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("news", "Новости", new AppNews(), ext);
 
  	ext.addCommandTitle("ru", "reader-search-google", "Поиск в Google");
+ 	ext.addCommandTitle("ru", "reader-luwrain-homepage", "Домашняя страница LUWRAIN");
     }
 
     private void save(String name, String command,
