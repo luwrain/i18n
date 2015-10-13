@@ -53,6 +53,8 @@ staticValues[code] == null)
 	    return null;
 	switch(ch)
 	{
+	case '\r':
+return "Символ переноса строки в стиле Windows";
 	case '—':
 	    return "длинное тире";
 	case '~':

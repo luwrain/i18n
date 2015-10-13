@@ -100,4 +100,16 @@ class AppNotepad implements org.luwrain.app.notepad.Strings
 	return "Вы хотите перечитать файл с учётом новой кодировки?";
     }
 
+    @Override public String actionTitle(String name)
+    {
+	switch(name)
+	{
+	case "remove-backslash-r":
+	    return "Удалить символы переноса строк Windows";
+	case "add-backslash-r":
+	    return "Добавить символы переноса строк Windows";
+	default:
+	    return "#Неизвестное действие блокнота:" + name + "#";
+	}
+    }
 }

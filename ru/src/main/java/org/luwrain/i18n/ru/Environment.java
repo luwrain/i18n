@@ -177,4 +177,9 @@ class Environment implements org.luwrain.core.Strings
 	    return "#Unknown uniRef type \"" + uniRefType + "\"#";
 	}
     }
+
+    @Override public String linesDeleted()
+    {
+	return "Удалено";
+    }
 }
