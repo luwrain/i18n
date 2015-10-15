@@ -16,7 +16,7 @@
 
 package org.luwrain.i18n.ru;
 
-import org.luwrain.os.Location;
+import org.luwrain.hardware.Partition;
 
 class Environment implements org.luwrain.core.Strings
 {
@@ -55,7 +55,7 @@ class Environment implements org.luwrain.core.Strings
 
     @Override public String quitPopupText()
     {
-	return "Вы действительно хотите завершить работу в Luwrain?";
+	return "Вы действительно хотите завершить работу в LUWRAIN?";
     }
 
     @Override public String appLaunchNoEnoughMemory()
@@ -118,22 +118,22 @@ class Environment implements org.luwrain.core.Strings
 	return "Приложение недоступно из-за открытой всплывающей области";
     }
 
-    @Override public String locationTitle(Location location)
+    @Override public String partitionTitle(Partition p)
     {
-	if (location == null)
+	if (p == null)
 	    return null;
-	switch(location.type())
+	switch(p.type())
 	{
-	case Location.ROOT:
-	    return "Корневой каталог, " + bytesNum(location.file().getFreeSpace()) + " свободно";
-	case Location.USER_HOME:
-	    return "Домашний каталог, " + bytesNum(location.file().getFreeSpace()) + " свободно";
-	case Location.REGULAR:
-	    return "Локальный диск " + location.name() + ", " + bytesNum(location.file().getFreeSpace()) + " свободно";
-	case Location.REMOTE:
-	    return "Сетевое подключение " + location.name() + ", " + bytesNum(location.file().getFreeSpace()) + " свободно";
-	case Location.REMOVABLE:
-	    return "Съёмный диск " + location.name() + ", " + bytesNum(location.file().getFreeSpace()) + " свободно";
+	case Partition.ROOT:
+	    return "Корневой каталог, " + bytesNum(p.file().getFreeSpace()) + " свободно";
+	case Partition.USER_HOME:
+	    return "Домашний каталог, " + bytesNum(p.file().getFreeSpace()) + " свободно";
+	case Partition.REGULAR:
+	    return "Локальный диск " + p.name() + ", " + bytesNum(p.file().getFreeSpace()) + " свободно";
+	case Partition.REMOTE:
+	    return "Сетевое подключение " + p.name() + ", " + bytesNum(p.file().getFreeSpace()) + " свободно";
+	case Partition.REMOVABLE:
+	    return "Съёмный диск " + p.name() + ", " + bytesNum(p.file().getFreeSpace()) + " свободно";
 	default:
 	    return "";
 	}
