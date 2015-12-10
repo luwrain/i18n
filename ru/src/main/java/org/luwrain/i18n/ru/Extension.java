@@ -44,6 +44,8 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("wiki", "Поиск в Википедии", new AppWiki(), ext);
 	save("twitter", "Твиттер", new AppTwitter(), ext);
 	save("news", "Новости", new AppNews(), ext);
+	save("opds", "Каталоги книг", new AppOpds(), ext);
+	save("wifi", "Подключение к WiFi-сетям", new AppWifi(), ext);
 
  	ext.addCommandTitle("ru", "reader-search-google", "Поиск в Google");
  	ext.addCommandTitle("ru", "reader-luwrain-homepage", "Домашняя страница LUWRAIN");
