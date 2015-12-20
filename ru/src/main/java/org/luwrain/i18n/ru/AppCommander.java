@@ -17,7 +17,9 @@
 package org.luwrain.i18n.ru;
 
 import java.io.*;
+import java.nio.file.*;
 
+import org.luwrain.core.NullCheck;
 import org.luwrain.app.commander.Operation;
 import org.luwrain.app.commander.PanelArea;
 
@@ -48,20 +50,21 @@ class AppCommander implements org.luwrain.app.commander.Strings
 	return "Копирование";
     }
 
-    @Override public String copyPopupPrefix(File[] files)
+    @Override public String copyPopupPrefix(Path[] files)
     {
-	if (files == null)
-	    throw new NullPointerException("files may not be null");
+	NullCheck.notNullItems(files, "files");
 	if (files.length == 1)
-	    return "Копировать " + files[0].getName() + " в:";
+	    return "Копировать " + files[0].getFileName().toString() + " в:";
 	return "Копировать " + numberOfItems(files.length) + " в:";
     }
 
-    @Override public String copyOperationName(File[] filesToCopy, File copyTo)
+    @Override public String copyOperationName(Path[] filesToCopy, Path copyTo)
     {
+	NullCheck.notNull(filesToCopy, "filesToCopy");
+	NullCheck.notNull(copyTo, "copyTo");
 	if (filesToCopy.length == 1)
-	    return "Копирование " + filesToCopy[0].getName() + " в " + copyTo.getAbsolutePath();
-	return "Копирование " + numberOfItems(filesToCopy.length) + " в "  + copyTo.getAbsolutePath();
+	    return "Копирование " + filesToCopy[0].getFileName().toString() + " в " + copyTo.toString();
+	return "Копирование " + numberOfItems(filesToCopy.length) + " в "  + copyTo.toString();
     }
 
     @Override public String movePopupName()
@@ -130,12 +133,12 @@ class AppCommander implements org.luwrain.app.commander.Strings
     {
 	switch (op.getFinishCode())
 	{
-	case Operation.OK:
+	case OK:
 	    return op.getOperationName() + " успешно завершено";
-	case Operation.INTERRUPTED:
+	case INTERRUPTED:
 	    return op.getOperationName() + " отменено";
 	default:
-	    return op.getOperationName() + " завершилось неуспешно";
+	    return op.getOperationName() + " завершено неуспешно";
 	}
     }
 
@@ -143,26 +146,34 @@ class AppCommander implements org.luwrain.app.commander.Strings
     {
 	switch (op.getFinishCode())
 	{
-	case Operation.OK:
+	case OK:
 	    return "Готово: " + op.getOperationName();
-	case Operation.INTERRUPTED:
+	case INTERRUPTED:
 	    return "Прервано: " + op.getOperationName();
-	case Operation.COPYING_NON_FILE_TO_FILE:
-	    return "Команда копировать не в файл в файл: " + op.getOperationName();
-	case Operation.PROBLEM_OPENING_FILE:
-	    return "Ошибка открытия файла " + op.getExtInfo() + ": " + op.getOperationName();
-	case Operation.PROBLEM_CREATING_FILE:
-	    return "Ошибка создания файла " + op.getExtInfo() + ": " + op.getOperationName();
-	case Operation.PROBLEM_READING_FILE:
-	    return "Ошибка чтения файла " + op.getExtInfo() + ": " + op.getOperationName();
-	case Operation.PROBLEM_WRITING_FILE:
-	    return "Ошибка записи файла " + op.getExtInfo() + ": " + op.getOperationName();
-	case Operation.INACCESSIBLE_SOURCE:
-	    return "Элементы для копирования недоступны в полном объёме: " + op.getOperationName();
-	case Operation.PROBLEM_CREATING_DIRECTORY:
-	    return "Невозможно создать каталог " + op.getExtInfo() + ": " + op.getOperationName();
-	case Operation.UNEXPECTED_PROBLEM:
+	case UNEXPECTED_PROBLEM:
 	    return "Неожиданная ошибка: " + op.getOperationName();
+	case PROBLEM_CREATING_DIRECTORY:
+	    return "Невозможно создать каталог " + op.getExtInfo() + ": " + op.getOperationName();
+	case PROBLEM_READING_FILE:
+	    return "Ошибка чтения файла " + op.getExtInfo() + ": " + op.getOperationName();
+	case PROBLEM_WRITING_FILE:
+	    return "Ошибка записи файла " + op.getExtInfo() + ": " + op.getOperationName();
+	case INACCESSIBLE_SOURCE:
+	    return "Содержимое недоступно для чтения:" + op.getOperationName();
+	case PROBLEM_CREATING_SYMLINK:
+	    return "Невозможно создать символьную ссылку" + op.getExtInfo() + ": " + op.getOperationName();
+	case PROBLEM_READING_SYMLINK:
+	    return "Невозможно прочитать символьную ссылку" + op.getExtInfo() + ": " + op.getOperationName();
+	case PROBLEM_DELETING:
+	    return "Невозможно удалить " + op.getExtInfo() + ": " + op.getOperationName();
+	case DEST_EXISTS_NOT_REGULAR:
+	    return "Целевой файл существует и не является обычным файлом:" + op.getExtInfo() + ": " + op.getOperationName();
+	case NOT_CONFIRMED_OVERWRITE:
+	    return "Перезапить не подтверждена:" + op.getExtInfo() + ": " + op.getOperationName();
+	case DEST_EXISTS_NOT_DIR:
+	    return "Целевой файл существует и не является каталогом:" + op.getExtInfo() + ": " + op.getOperationName();
+	case DEST_EXISTS:
+	    return "Целевой файл существует:" + op.getExtInfo() + ": " + op.getOperationName();
 	default:
 	    return "Неизвестная ошибка: " + op.getOperationName();
 	}
