@@ -22,4 +22,19 @@ class AppPlayer implements org.luwrain.app.player.Strings
     {
 	return "Медиаплеер";
     }
+
+    @Override public String treeAreaName()
+    {
+	return "Альбомы и станции";
+    }
+
+    @Override public String controlAreaName()
+    {
+	return "Управление проигрывателем";
+    }
+
+    @Override public String docAreaName()
+    {
+	return "Текстовая версия";
+    }
 }

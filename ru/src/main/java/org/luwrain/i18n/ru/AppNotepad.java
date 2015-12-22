@@ -25,14 +25,9 @@ class AppNotepad implements org.luwrain.app.notepad.Strings
 	return "Блокнот";
     }
 
-    @Override public String introduction()
+    @Override public String initialTitle()
     {
-	return "Редактирование";
-    }
-
-    @Override public String newFileName()
-    {
-	return "Новый файл.txt";
+	return "Блокнот";
     }
 
     @Override public String errorOpeningFile()
@@ -104,6 +99,12 @@ class AppNotepad implements org.luwrain.app.notepad.Strings
     {
 	switch(name)
 	{
+	case "save":
+	    return "Сохранить";
+	case "open-another-charset":
+	    return "Открыть с указанием кодировки";
+	case "save-another-charset":
+	    return "Сохранить с указанием кодировки";
 	case "remove-backslash-r":
 	    return "Удалить символы переноса строк Windows";
 	case "add-backslash-r":
