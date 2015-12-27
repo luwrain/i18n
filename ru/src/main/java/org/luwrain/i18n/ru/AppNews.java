@@ -79,4 +79,9 @@ class AppNews implements org.luwrain.app.news.Strings
     {
 	return "Просмотрены все статьи в группе";
     }
+
+    @Override public String passedTimeBrief(Date date)
+    {
+	return new DateUtils().passedTimeBrief(date) + " назад";
+    }
 }
