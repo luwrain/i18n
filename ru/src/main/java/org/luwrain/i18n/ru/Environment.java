@@ -182,4 +182,9 @@ class Environment implements org.luwrain.core.Strings
     {
 	return "Удалено";
     }
+
+    @Override public String noReadingChannel()
+    {
+	return "Отсутствует речевой вывод для последовательного чтения";
+    }
 }
