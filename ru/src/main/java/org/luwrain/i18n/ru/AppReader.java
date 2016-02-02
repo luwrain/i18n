@@ -77,4 +77,9 @@ return text + " Столбец " + col;
     {
 	return "Открыть в рассказчике";
     }
+
+    @Override public String infoAreaName()
+    {
+	return "Информация о документе";
+    }
 }

@@ -41,7 +41,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("notepad", "Блокнот", new AppNotepad(), ext);
 	save("commander", "Обзор файлов и папок", new AppCommander(), ext);
 	save("reader", "Просмотр документов", new AppReader(), ext);
-	save("wiki", "Поиск в Википедии", new AppWiki(), ext);
+	save("wiki", "Википедии", new AppWiki(), ext);
 	save("twitter", "Твиттер", new AppTwitter(), ext);
 	save("news", "Новости", new AppNews(), ext);
 	save("opds", "Каталоги книг", new AppOpds(), ext);

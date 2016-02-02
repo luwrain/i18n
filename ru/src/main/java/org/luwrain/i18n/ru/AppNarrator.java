@@ -22,4 +22,41 @@ class AppNarrator implements org.luwrain.app.narrator.Strings
     {
 	return "Рассказчик";
     }
+
+    @Override public String targetDirPopupName()
+    {
+	return "Каталог для сохранения книги";
+    }
+
+    @Override public String targetDirPopupPrefix()
+    {
+	return "Выберите каталог для сохранения файлов книги:";
+    }
+
+    @Override public String noTextToSynth()
+    {
+	return "Отсутствует текст для создания книги";
+    }
+
+    @Override public String noChannelToSynth()
+    {
+	return "Отсутствуют подходящие речевые синтезаторы";
+    }
+
+    @Override public String noSupportedAudioFormats()
+    {
+	return "Отсутствуют поддерживаемые форматы звуковых данных";
+    }
+
+    @Override public String done()
+    {
+	return "Готово!";
+    }
+
+    @Override public String compressing(String fileName)
+    {
+	return "Сжатие " + fileName;
+    }
 }
+
+
