@@ -41,7 +41,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("notepad", "Блокнот", new AppNotepad(), ext);
 	save("commander", "Обзор файлов и папок", new AppCommander(), ext);
 	save("reader", "Просмотр документов", new AppReader(), ext);
-	save("wiki", "Википедии", new AppWiki(), ext);
+	save("wiki", "Википедия", new AppWiki(), ext);
 	save("twitter", "Твиттер", new AppTwitter(), ext);
 	save("news", "Новости", new AppNews(), ext);
 	save("opds", "Каталоги книг", new AppOpds(), ext);
@@ -51,6 +51,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("calc", "Калькулятор", new AppCalc(), ext);
  	ext.addCommandTitle("ru", "reader-search-google", "Поиск в Google");
  	ext.addCommandTitle("ru", "reader-luwrain-homepage", "Домашняя страница LUWRAIN");
+ 	ext.addCommandTitle("ru", "open-url", "Открыть веб-страницу");
     }
 
     private void save(String name, String command,

@@ -22,4 +22,19 @@ class AppOpds implements org.luwrain.app.opds.Strings
     {
 	return "Каталоги книг";
     }
+
+    @Override public String catalog()
+    {
+	return "Подкаталог";
+    }
+
+    @Override public String invalidLinkInSelectedEntry(String link)
+    {
+	return "Выбраная запись содержит неверно оформленную ссылку:" + link;
+    }
+
+    @Override public String noSuitableLinksInEntry()
+    {
+	return "Не удалось выбрать подходящую ссылку для открытия документа";
+    }
 }
