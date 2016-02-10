@@ -30,12 +30,12 @@ class AppCommander implements org.luwrain.app.commander.Strings
 	return "Обзор файлов и папок";
     }
 
-    @Override public String leftPanel()
+    @Override public String leftPanelName()
     {
 	return "Левая панель ";
     }
 
-    @Override public String rightPanel()
+    @Override public String rightPanelName()
     {
 	return "Правая панель ";
     }
@@ -230,5 +230,8 @@ class AppCommander implements org.luwrain.app.commander.Strings
 	return "" + num + "Б";
     }
 
-
+    @Override public String infoAreaName()
+    {
+ return "Расширенная информация";
+    }
 }
