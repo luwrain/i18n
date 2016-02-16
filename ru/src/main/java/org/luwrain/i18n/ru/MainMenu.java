@@ -18,14 +18,14 @@ package org.luwrain.i18n.ru;
 
 import java.util.*;
 
-class MainMenu implements org.luwrain.mainmenu.Strings
+class MainMenu
 {
-    @Override public String areaName()
+    public String areaName()
     {
 	return "Главное меню";
         }
 
-    @Override public String currentDateTime()
+    public String currentDateTime()
     {
 	Calendar c = new GregorianCalendar();
 	String value = "";
@@ -104,7 +104,7 @@ class MainMenu implements org.luwrain.mainmenu.Strings
 	return s;
     }
 
-    @Override public String noCommand()
+    public String noCommand()
     {
 	return "Для выбранного пункта главного меню в системе нет команды";
     }
