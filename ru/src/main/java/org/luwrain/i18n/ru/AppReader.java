@@ -73,9 +73,25 @@ return text + " Столбец " + col;
 	return "Ссылка";
     }
 
-    @Override public String contextMenuOpenInNarrator()
+    @Override public String actionTitle(String actionName)
     {
-	return "Открыть в рассказчике";
+	switch(actionName)
+	{
+	case "open-file":
+	    return "Открыть файл";
+	case "open-url":
+	    return "Открыть URL";
+	case "info":
+	    return "Информация о документе";
+	case "change-format":
+	    return "Сменить формат";
+	case "change-charset":
+	    return "Сменить кодировку";
+	case "open-in-narrator":
+	    return "Открыть в Рассказчике";
+	default:
+	    return actionName;
+	}
     }
 
     @Override public String infoAreaName()
