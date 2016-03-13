@@ -98,4 +98,60 @@ return text + " Столбец " + col;
     {
 	return "Информация о документе";
     }
+
+    @Override public String bookTreeRoot()
+    {
+	return "Книга";
+    }
+
+    @Override public String treeAreaName()
+    {
+	return "Разделы";
+    }
+
+    @Override public String notesAreaName()
+    {
+	return "Закладки";
+    }
+
+    @Override public String infoPageField(String name)
+    {
+	switch(name)
+	{
+	case "url":
+	    return "URL";
+	case "title":
+	    return "Заголовок";
+	case "ncc:files":
+	    return "Файлов";
+	case "ncc:multimediaType":
+	    return "Тип данных";
+	case "dc:creator":
+	    return "Создатель";
+	case "ncc:generator":
+	    return "Подготовлено при помощи";
+	case "dc:format":
+	    return "Daisy-формат";
+	case "dc:title":
+	    return "Daisy-заголовок";
+	case "ncc:narrator":
+	    return "Чтец";
+	case "ncc:sourceDate":
+	    return "Дата записи";
+	case "ncc:producedDate":
+	    return "Дата выпуска";
+	case "dc:language":
+	    return "Язык";
+	case "ncc:producer":
+	    return "Продюсер";
+	case "ncc:totalTime":
+	    return "Общее время";
+	case "dc:date":
+	    return "Дата";
+	case "dc:publisher":
+	    return "Издатель";
+	default:
+	    return "";
+	}
+    }
 }
