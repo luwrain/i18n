@@ -26,6 +26,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 
 	ext.addCommandTitle("ru", "quit", "Завершить работу в Luwrain");
 	ext.addCommandTitle("ru", "shutdown", "Выключить компьютер");
+	ext.addCommandTitle("ru", "suspend", "Спящий режим");
 	ext.addCommandTitle("ru", "reboot", "Перезагрузить компьютер");
 
 	ext.addStrings("ru", "main-menu", new MainMenu());
