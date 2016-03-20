@@ -45,6 +45,49 @@ class AppCommander implements org.luwrain.app.commander.Strings
 	return "Действия";
     }
 
+    @Override public String panelActionTitle(String actionName, boolean multiple)
+    {
+	switch(actionName)
+	{
+	case "open":
+	    return "Открыть";
+	case "edit-as-text":
+	    return "Редактировать как текст";
+	case "preview":
+	    return "Просмотр";
+	case "preview-another-format":
+	    return "Просмотр с указанием формата";
+	case "copy":
+	    return "Копировать";
+	case "move":
+	    return "Переименовать/переместить";
+	case "mkdir":
+	    return "Создать каталог";
+	case "delete":
+	    return "Удалить";
+	case "hidden-show":
+	    return "Показать скрытые файлы";
+	case "hidden-hide":
+	    return "Не показывать скрытые файлы";
+	case "info":
+	    return multiple?"Информация об объектах":"Информация об объекте";
+	default:
+	    return actionName;
+	}
+    }
+
+    @Override public String infoActionTitle(String actionName)
+    {
+	NullCheck.notNull(actionName, "actionName");
+	switch(actionName)
+	{
+	case "close-info":
+	    return "Закрыть просмотр информации";
+	default:
+	    return actionName;
+	}
+    }
+
     @Override public String copyPopupName()
     {
 	return "Копирование";
