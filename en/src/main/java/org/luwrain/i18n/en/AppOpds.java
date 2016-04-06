@@ -16,24 +16,25 @@
 
 package org.luwrain.i18n.en;
 
-class NumberUtil
+class AppOpds implements org.luwrain.app.opds.Strings
 {
-    public static String chooseNumberDependentForm(int num,
-						   String form1,
-						   String form2,
-String form3)
+    @Override public String appName()
     {
-	int k = num;
-	if (k < 0)
-	    k *= -1;
-	k = k % 100;
-	if (k >= 10 && k <= 20)
-	    return form3;
-	int kk = k % 10;
-	if (kk == 1)
-	    return form1;
-	if (kk >= 2 && kk <= 4)
-	    return form2;
-	return form3;
+	return "Каталоги книг";
+    }
+
+    @Override public String catalog()
+    {
+	return "Подкаталог";
+    }
+
+    @Override public String invalidLinkInSelectedEntry(String link)
+    {
+	return "Выбраная запись содержит неверно оформленную ссылку:" + link;
+    }
+
+    @Override public String noSuitableLinksInEntry()
+    {
+	return "Не удалось выбрать подходящую ссылку для открытия документа";
     }
 }

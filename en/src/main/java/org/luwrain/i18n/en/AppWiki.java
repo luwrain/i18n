@@ -1,14 +1,14 @@
 /*
    Copyright 2012-2015 Michael Pozhidaev <michael.pozhidaev@gmail.com>
 
-   This file is part of the Luwrain.
+   This file is part of the LUWRAIN.
 
-   Luwrain is free software; you can redistribute it and/or
+   LUWRAIN is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
    License as published by the Free Software Foundation; either
    version 3 of the License, or (at your option) any later version.
 
-   Luwrain is distributed in the hope that it will be useful,
+   LUWRAIN is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
    General Public License for more details.
@@ -16,50 +16,50 @@
 
 package org.luwrain.i18n.en;
 
-class Wiki implements org.luwrain.app.wiki.Strings
+class AppWiki implements org.luwrain.app.wiki.Strings
 {
     @Override public String appName()
     {
-	return "Search in Wikipedia";
+	return "Поиск в Википедии";
     }
 
     @Override public String querySuccess(int count)
     {
-	return "Articles found: " + count;
+	return "Найдено статей: " + count;
     }
 
     @Override public String searchEn()
     {
-	return "Search in English";
+	return "Поиск в английском языковом разделе";
     }
 
     @Override public String searchRu()
     {
-	return "Search in Russian";
+	return "Поиск в русском языковом разделе";
     }
 
     @Override public String errorSearching()
     {
-	return "Error occurred while searching";
+	return "При обработке запроса произошла ошибка";
     }
 
     @Override public String nothingFound()
     {
-	return "Nothing found";
+	return "Ничего не найдено";
     }
 
     @Override public String queryResults()
     {
-	return "Search result";
+	return "Результаты поиска";
     }
 
     @Override public String queryPopupName()
     {
-	return "Search in Wikipedia";
+	return "Поиск в Википедии";
     }
 
     @Override public String queryPopupPrefix()
     {
-	return "Phrase to search:";
+	return "Выражения для поиска:";
     }
 }

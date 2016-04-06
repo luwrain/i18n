@@ -1,16 +1,31 @@
+/*
+   Copyright 2012-2015 Michael Pozhidaev <michael.pozhidaev@gmail.com>
+
+   This file is part of the LUWRAIN.
+
+   LUWRAIN is free software; you can redistribute it and/or
+   modify it under the terms of the GNU General Public
+   License as published by the Free Software Foundation; either
+   version 3 of the License, or (at your option) any later version.
+
+   LUWRAIN is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   General Public License for more details.
+*/
 
 package org.luwrain.i18n.en;
 
 import java.util.*;
 
-class MainMenu implements org.luwrain.mainmenu.Strings
+class MainMenu
 {
-    @Override public String areaName()
+    public String areaName()
     {
-	return "Main menu";
+	return "Главное меню";
         }
 
-    @Override public String currentDateTime()
+    public String currentDateTime()
     {
 	Calendar c = new GregorianCalendar();
 	String value = "";
@@ -19,10 +34,10 @@ class MainMenu implements org.luwrain.mainmenu.Strings
 	value += withZeroes(c.get(Calendar.MINUTE), 2);
 	value += ", ";
 	value += dayOfWeek(c.get(Calendar.DAY_OF_WEEK));
-	value += ", ";
-	value += month(c.get(Calendar.MONTH));
-	value += " ";
+	value += ",";
 	value += c.get(Calendar.DAY_OF_MONTH);
+	value += " ";
+	value += month(c.get(Calendar.MONTH));
 	return value;
     }
 
@@ -31,19 +46,19 @@ class MainMenu implements org.luwrain.mainmenu.Strings
 	switch(index)
 	{
 	case 1:
-	    return "Sunday";
+	    return "Воскресенье";
 	case 2:
-	    return "Monday";
+	    return "Понедельник";
 	case 3:
-	    return "Tuesday";
+	    return "Вторник";
 	case 4:
-	    return "Wednesday";
+	    return "Среда";
 	case 5:
-	    return "Thursday";
+	    return "Четверг";
 	case 6:
-	    return "Friday";
+	    return "Пятница";
 	case 7:
-	    return "Saturday";
+	    return "Суббота";
 	}
 	return null;
     }
@@ -53,29 +68,29 @@ class MainMenu implements org.luwrain.mainmenu.Strings
 	switch(index)
 	{
 	case 0:
-	    return "January";
+	    return "января";
 	case 1:
-	    return "February";
+	    return "февраля";
 	case 2:
-	    return "March";
+	    return "марта";
 	case 3:
-	    return "April";
+	    return "апреля";
 	case 4:
-	    return "May";
+	    return "мая";
 	case 5:
-	    return "June";
+	    return "июня";
 	case 6:
-	    return "July";
+	    return "июля";
 	case 7:
-	    return "August";
+	    return "августа";
 	case 8:
-	    return "September";
+	    return "сентября";
 	case 9:
-	    return "October";
+	    return "октября";
 	case 10:
-	    return "November";
+	    return "ноября";
 	case 11:
-	    return "December";
+	    return "декабря";
 	}
 	return null;
     }
@@ -89,8 +104,8 @@ class MainMenu implements org.luwrain.mainmenu.Strings
 	return s;
     }
 
-    @Override public String noCommand()
+    public String noCommand()
     {
-	return "No command for chosen main menu item";
+	return "Для выбранного пункта главного меню в системе нет команды";
     }
 }
