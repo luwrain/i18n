@@ -22,12 +22,13 @@ import java.io.*;
 
 class ResourceConstants
 {
-    static private final String RESOURCE_PATH = "org.luwrain.i18n.en/constants.properties";
+    static private final String RESOURCE_PATH = "org/luwrain/i18n/en/constants.properties";
 
     private final Properties properties = new Properties();
 
     ResourceConstants()
     {
+	System.out.println("aaa");
 	URL url = ClassLoader.getSystemResource(RESOURCE_PATH);
 	try {
 	    properties.load(new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8")));

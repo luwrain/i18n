@@ -20,18 +20,20 @@ import org.luwrain.core.*;
 
 public class Extension extends org.luwrain.core.extensions.EmptyExtension
 {
+    static private final String LANG_NAME = "en";
+    
     @Override public void i18nExtension(Luwrain luwrain, I18nExtension ext)
     {
-	ext.addLang("ru", new Lang(ext.getStaticValueNames()));
+	ext.addLang(LANG_NAME, new Lang(ext.getStaticValueNames()));
 
-	ext.addCommandTitle("ru", "quit", "Завершить работу в Luwrain");
-	ext.addCommandTitle("ru", "shutdown", "Выключить компьютер");
-	ext.addCommandTitle("ru", "suspend", "Спящий режим");
-	ext.addCommandTitle("ru", "reboot", "Перезагрузить компьютер");
+	ext.addCommandTitle(LANG_NAME, "quit", "Завершить работу в Luwrain");
+	ext.addCommandTitle(LANG_NAME, "shutdown", "Выключить компьютер");
+	ext.addCommandTitle(LANG_NAME, "suspend", "Спящий режим");
+	ext.addCommandTitle(LANG_NAME, "reboot", "Перезагрузить компьютер");
 
-	ext.addStrings("ru", "main-menu", new MainMenu());
-	ext.addStrings("ru", org.luwrain.desktop.App.STRINGS_NAME, new Desktop());
-	ext.addStrings("ru", "luwrain.environment", new Environment());
+	ext.addStrings(LANG_NAME, "main-menu", new MainMenu());
+	ext.addStrings(LANG_NAME, org.luwrain.desktop.App.STRINGS_NAME, new Desktop());
+	ext.addStrings(LANG_NAME, "luwrain.environment", new Environment());
 
 	save("control-panel", "Панель управления", new AppControl(), ext);
 	save("registry", "Редактор реестра", new AppRegistry(), ext);
@@ -51,15 +53,15 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("wifi", "Подключение к WiFi-сетям", new AppWifi(), ext);
 	save("player", "Медиаплеер", new AppPlayer(), ext);
 	save("calc", "Калькулятор", new AppCalc(), ext);
- 	ext.addCommandTitle("ru", "reader-search-google", "Поиск в Google");
- 	ext.addCommandTitle("ru", "reader-luwrain-homepage", "Домашняя страница LUWRAIN");
- 	ext.addCommandTitle("ru", "open-url", "Открыть веб-страницу");
+ 	ext.addCommandTitle(LANG_NAME, "reader-search-google", "Поиск в Google");
+ 	ext.addCommandTitle(LANG_NAME, "reader-luwrain-homepage", "Домашняя страница LUWRAIN");
+ 	ext.addCommandTitle(LANG_NAME, "open-url", "Открыть веб-страницу");
     }
 
     private void save(String name, String command,
 		 Object strings, I18nExtension ext)
     {
- 	ext.addCommandTitle("ru", name, command);
-	ext.addStrings("ru", "luwrain." + name, strings);
+ 	ext.addCommandTitle(LANG_NAME, name, command);
+	ext.addStrings(LANG_NAME, "luwrain." + name, strings);
     }
 }
