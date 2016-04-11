@@ -17,129 +17,152 @@
 package org.luwrain.i18n.en;
 
 import org.luwrain.hardware.Partition;
+import org.luwrain.core.NullCheck;
 
 class Environment implements org.luwrain.core.Strings
 {
     @Override public String noClipboardContent()
     {
-	return "Нет данных в буфере обмена";
+	return "No data in clipboard";
     }
 
     @Override public String regionPointSet()
     {
-	return "Отметка установлена ";
+	return "Mark set";
     }
 
     @Override public String linesCopied(int linesNum)
     {
 	if (linesNum < 1)
-	    return "Нет скопированных строк";
+	    return "No copied lines";
 	if (linesNum == 1)
-	    return "Скопирована одна строка";
-	return "Скопировано строк: " + linesNum;
+	    return "One line copied";
+	return "Lines copied: " + linesNum;
     }
 
     @Override public String linesInserted(int linesNum)
     {
 	if (linesNum < 1)
-	    return "Нет скопированных строк";
+	    return "No copied lines";
 	if (linesNum == 1)
-	    return "Вставлена одна строка";
-	return "Вставлено строк: " + linesNum;
+	    return "One line pasted";
+	return "Lines pasted: " + linesNum;
     }
 
     @Override public String quitPopupName()
     {
-	return "Завершение работы";
+	return "Exiting LUWRAIN";
     }
 
     @Override public String quitPopupText()
     {
-	return "Вы действительно хотите завершить работу в LUWRAIN?";
+	return "Are you sure you want to exit LUWRAIN?";
     }
 
     @Override public String appLaunchNoEnoughMemory()
     {
-	return "Недостаточно памяти для запуска приложения";
+	return "No enough memory to run an application";
     }
 
     @Override public String appLaunchUnexpectedError()
     {
-	return "Запуск прерван из-за внутренней ошибки приложения";
+	return "Launching of the application is interrupted by an internal application error";
     }
 
     @Override public String appCloseHasPopup()
     {
-	return "Перед закрытием приложения необходимо закрыть его всплывающие окна";
+	return "You should close all application popups before closing the application";
     }
 
     @Override public String noCommand()
     {
-	return "Выбранное Вами действие недоступно в системе";
+	return "The command you choose isn\t accessible in the system";
     }
 
     @Override public String startWorkFromMainMenu()
     {
-	return "Начните работу с главного меню";
+	return "Start you work from the main menu";
     }
 
     @Override public String noLaunchedApps()
     {
-	return "Все приложения закрыты";
+	return "All applications closed";
     }
 
     @Override public String fontSize(int size)
     {
-	return "Размер шрифта: " + size;
+	return "Font sizeп: " + size;
     }
 
     @Override public String openPopupName()
     {
-	return "Открытие файла";
+	return "Open a file";
     }
 
     @Override public String openPopupPrefix()
     {
-	return "Введите имя файла для открытия:";
+	return "Enter name of the file to open:";
     }
 
     @Override public String commandPopupName()
     {
-	return "Выполнение команды";
+	return "Run a command";
     }
 
     @Override public String commandPopupPrefix()
     {
-	return "Команда:";
+	return "Command:";
     }
 
 @Override public String appBlockedByPopup()
     {
-	return "Приложение недоступно из-за открытой всплывающей области";
+	return "The application is inaccessible due to opened popup area";
     }
 
     @Override public String partitionTitle(Partition p)
     {
-	if (p == null)
-	    return null;
+	NullCheck.notNull(p, "p");
 	switch(p.type())
 	{
 	case Partition.ROOT:
-	    return "Корневой каталог, " + bytesNum(p.file().getFreeSpace()) + " свободно";
+	    return "Root directory, " + bytesNum(p.file().getFreeSpace()) + " free";
 	case Partition.USER_HOME:
-	    return "Домашний каталог, " + bytesNum(p.file().getFreeSpace()) + " свободно";
+	    return "Home directory, " + bytesNum(p.file().getFreeSpace()) + " free";
 	case Partition.REGULAR:
-	    return "Локальный диск " + p.name() + ", " + bytesNum(p.file().getFreeSpace()) + " свободно";
+	    return "Local partition " + p.name() + ", " + bytesNum(p.file().getFreeSpace()) + " free";
 	case Partition.REMOTE:
-	    return "Сетевое подключение " + p.name() + ", " + bytesNum(p.file().getFreeSpace()) + " свободно";
+	    return "Network drive " + p.name() + ", " + bytesNum(p.file().getFreeSpace()) + " free";
 	case Partition.REMOVABLE:
-	    return "Съёмный диск " + p.name() + ", " + bytesNum(p.file().getFreeSpace()) + " свободно";
+	    return "Removable media " + p.name() + ", " + bytesNum(p.file().getFreeSpace()) + " free";
 	default:
 	    return "";
 	}
     }
 
-    private String bytesNum(long num)
+    @Override public String uniRefPrefix(String uniRefType)
+    {
+	switch(uniRefType)
+	{
+	case "file":
+	    return "File";
+	case "command":
+	    return "Command";
+	default:
+	    return "#Unknown uniRef type \"" + uniRefType + "\"#";
+	}
+    }
+
+    @Override public String linesDeleted()
+    {
+	return "Deleted";
+    }
+
+    @Override public String noReadingChannel()
+    {
+	return "No speech output for reading";
+    }
+
+        private String bytesNum(long num)
     {
 	if (num > 1024 * 1024 * 1024)
 	{
@@ -165,26 +188,4 @@ class Environment implements org.luwrain.core.Strings
 	return "" + num + "Б";
     }
 
-    @Override public String uniRefPrefix(String uniRefType)
-    {
-	switch(uniRefType)
-	{
-	case "file":
-	    return "Файл";
-	case "command":
-	    return "Команда";
-	default:
-	    return "#Unknown uniRef type \"" + uniRefType + "\"#";
-	}
-    }
-
-    @Override public String linesDeleted()
-    {
-	return "Удалено";
-    }
-
-    @Override public String noReadingChannel()
-    {
-	return "Отсутствует речевой вывод для последовательного чтения";
-    }
 }

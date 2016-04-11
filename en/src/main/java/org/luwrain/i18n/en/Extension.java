@@ -26,36 +26,36 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
     {
 	ext.addLang(LANG_NAME, new Lang(ext.getStaticValueNames()));
 
-	ext.addCommandTitle(LANG_NAME, "quit", "Завершить работу в Luwrain");
-	ext.addCommandTitle(LANG_NAME, "shutdown", "Выключить компьютер");
-	ext.addCommandTitle(LANG_NAME, "suspend", "Спящий режим");
-	ext.addCommandTitle(LANG_NAME, "reboot", "Перезагрузить компьютер");
+	ext.addCommandTitle(LANG_NAME, "quit", "Quit");
+	ext.addCommandTitle(LANG_NAME, "shutdown", "Shutdown");
+	ext.addCommandTitle(LANG_NAME, "suspend", "Suspend");
+	ext.addCommandTitle(LANG_NAME, "reboot", "Reboot");
 
 	ext.addStrings(LANG_NAME, "main-menu", new MainMenu());
 	ext.addStrings(LANG_NAME, org.luwrain.desktop.App.STRINGS_NAME, new Desktop());
 	ext.addStrings(LANG_NAME, "luwrain.environment", new Environment());
 
-	save("control-panel", "Панель управления", new AppControl(), ext);
-	save("registry", "Редактор реестра", new AppRegistry(), ext);
-	save("term", "Терминал", new AppTerm(), ext);
-	save("mail", "Почта", new AppMail(), ext);
-	save("message", "Сообщение", new AppMessage(), ext);
-	save("fetch", "Доставка почты и новостей", new AppFetch(), ext);
-	save("contacts", "Адресная книга", new AppContacts(), ext);
-	save("notepad", "Блокнот", new AppNotepad(), ext);
-	save("commander", "Обзор файлов и папок", new AppCommander(), ext);
-	save("reader", "Просмотр документов", new AppReader(), ext);
-	save("wiki", "Википедия", new AppWiki(), ext);
-	save("twitter", "Твиттер", new AppTwitter(), ext);
-	save("news", "Новости", new AppNews(), ext);
-	save("opds", "Каталоги книг", new AppOpds(), ext);
-	save("narrator", "Рассказчик", new AppNarrator(), ext);
-	save("wifi", "Подключение к WiFi-сетям", new AppWifi(), ext);
-	save("player", "Медиаплеер", new AppPlayer(), ext);
-	save("calc", "Калькулятор", new AppCalc(), ext);
- 	ext.addCommandTitle(LANG_NAME, "reader-search-google", "Поиск в Google");
- 	ext.addCommandTitle(LANG_NAME, "reader-luwrain-homepage", "Домашняя страница LUWRAIN");
- 	ext.addCommandTitle(LANG_NAME, "open-url", "Открыть веб-страницу");
+	save("control-panel", "Control panel", new AppControl(), ext);
+	save("registry", "Registry editor", new AppRegistry(), ext);
+	save("term", "Terminal", new AppTerm(), ext);
+	save("mail", "Mail", new AppMail(), ext);
+	save("message", "Message", new AppMessage(), ext);
+	save("fetch", "Mail and news fetching", new AppFetch(), ext);
+	save("contacts", "Address book", new AppContacts(), ext);
+	save("notepad", "Notepad", new AppNotepad(), ext);
+	save("commander", "Commander", new AppCommander(), ext);
+	save("reader", "Documents preview", new AppReader(), ext);
+	save("wiki", "Wikipedia", new AppWiki(), ext);
+	save("twitter", "Twitter", new AppTwitter(), ext);
+	save("news", "News", new AppNews(), ext);
+	save("opds", "OPDS-libraries", new AppOpds(), ext);
+	save("narrator", "Narrator", new AppNarrator(), ext);
+	save("wifi", "Wifi-networks", new AppWifi(), ext);
+	save("player", "Mediaplayer", new AppPlayer(), ext);
+	save("calc", "Calculator", new AppCalc(), ext);
+ 	ext.addCommandTitle(LANG_NAME, "reader-search-google", "Search in Google");
+ 	ext.addCommandTitle(LANG_NAME, "reader-luwrain-homepage", "LUWRAIN homepage");
+ 	ext.addCommandTitle(LANG_NAME, "open-url", "Browse URL");
     }
 
     private void save(String name, String command,
