@@ -22,57 +22,57 @@ class AppMessage implements org.luwrain.app.message.Strings
 {
     @Override public String appName()
     {
-	return "Сообщение";
+	return "Message";
     }
 
     @Override public String withoutSubject()
     {
-	return "ННет темы сообщения";
+	return "No message subject";
     }
 
     @Override public String emptyRecipient()
     {
-	return "Пустой получатель";
+	return "Empty recipient";
     }
 
     @Override public String errorSendingMessage()
     {
-	return "Произошла ошибка при отправлении сообщения";
+	return "Unable to send the message";
     }
 
     @Override public String to()
     {
-	return "Кому:";
+	return "To:";
     }
 
     @Override public String cc()
     {
-	return "Копия:";
+	return "CC:";
     }
 
     @Override public String subject()
     {
-	return "Тема:";
+	return "Subject:";
     }
 
     @Override public String enterMessageBelow()
     {
-	return "Текст сообщения ниже:";
+	return "Write the text of the message below:";
     }
 
     @Override public String attachmentPopupName()
     {
-	return "Новое прикрепление";
+	return "New attachments";
     }
 
     @Override public String attachmentPopupPrefix()
     {
-	return "Выберите файл для прикрепления:";
+	return "Choose a file for the attachment:";
     }
 
     @Override public String attachment(File f)
     {
-	return "Прикрепление " + f.getName() + " (" + f.getAbsolutePath() + ")";
+	return "Attachment " + f.getName() + " (" + f.getAbsolutePath() + ")";
     }
 
     @Override public String contactsFolderTitle(String origTitle)
@@ -80,18 +80,17 @@ class AppMessage implements org.luwrain.app.message.Strings
 	switch(origTitle)
 	{
 	case "luwrain-contacts-folder-root":
-	    return "Адресная книга";
+	    return "Address book";
 	case "luwrain-contacts-folder-personal":
-	    return "Личные контакты";
+	    return "Personal contacts";
 	case "luwrain-contacts-folder-job":
-	    return "Работа";
+	    return "Job";
 	case "luwrain-contacts-folder-organizations":
-	    return "Организации";
+	    return "Organizations";
 	case "luwrain-contacts-folder-lists":
-	    return "Списки рассылок";
+	    return "Mailing lists";
 	default:
 	    return origTitle;
 	}
     }
-
 }

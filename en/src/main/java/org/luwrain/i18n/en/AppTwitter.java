@@ -22,130 +22,130 @@ class AppTwitter implements org.luwrain.app.twitter.Strings
 {
     @Override public String appName()
     {
-	return "Твиттер";
+	return "Twitter";
     }
 
     @Override public String tweetsAreaName()
     {
-	return "Твиты";
+	return "Tweets";
     }
 
     @Override public String searchSectionsItem()
     {
-	return "Поиск";
+	return "Search";
     }
 
     @Override public String postSectionsItem()
     {
-	return "Новый твит";
+	return "New tweet";
     }
 
     @Override public String homeTweetsSectionsItem()
     {
-	return "Опубликованные твиты";
+	return "Published tweets";
     }
 
     @Override public String userTweetsSectionsItem()
     {
-	return "Твиты других пользователей";
+	return "Tweets of other users";
     }
 
     @Override public String noConnection()
     {
-	return "Необходимо выбрать учётную запись для работы";
+	return "It is necessary to choose an account for work";
     }
 
     @Override public String problemConnecting()
     {
-	return "Невозможно подключиться к выбранной учётной записи";
+	return "Unable to connect to the selected accound";
     }
 
     @Override public String searchPopupName()
     {
-	return "Поиск";
+	return "Search";
     }
 
     @Override public String searchPopupPrefix()
     {
-	return "Введите фразу для поиска:";
+	return "Enter the expression  to search:";
     }
 
     @Override public String problemSearching()
     {
-	return "Произошла ошибка при поиске";
+	return "An error occurred while searching";
     }
 
     @Override public String nothingFound()
     {
-	return "Поиск по указанной фразе не дал результатов";
+	return "Nothing found";
     }
 
     @Override public String postPopupName()
     {
-	return "Новый твит";
+	return "New tweet";
     }
 
     @Override public String postPopupPrefix()
     {
-	return "Введите текст нового твита:";
+	return "Enter the text of the new tweet:";
     }
 
     @Override public String postingSuccess()
     {
-	return "Новый твит успешно опубликован";
+	return "New tweet was successfully published";
     }
 
     @Override public String problemPosting()
     {
-	return "Произошла ошибка при публикации нового твита";
+	return "Unable to publish new tweet";
     }
 
     @Override public String problemHomeTweets()
     {
-	return "Произошла ошибка при получении опубликованных твитов";
+	return "Unable to get the list of published tweets";
     }
 
     @Override public String userTweetsPopupName()
     {
-	return "Просмотр твитов";
+	return "Tweets preview";
     }
 
     @Override public String userTweetsPopupPrefix()
     {
-	return "Введите имя пользователя для просмотра твитов:";
+	return "Enter the name of the user to see tweets of:";
     }
 
     @Override public String problemUserTweets()
     {
-	return "Произошла ошибка при получении твитов пользователя";
+	return "Unable to get the tweets of the requested user";
     }
 
     @Override public String noUserTweets()
     {
-	return "Пользователь не имеет опубликованных твитов";
+	return "The user has no published tweets";
     }
 
     @Override public String connectedAccount()
     {
-	return "Подключённая учётная запись";
+	return "Activated account";
     }
 
     @Override public String account()
     {
-	return "Учётная запись";
+	return "Account";
     }
 
     @Override public String numberOfFavorites(int num)
     {
 	if (num < 1)
-	    return "нет лайков";
+	    return "No likes";
 	return "" + num + " " + Lang.afterNum(num, "лайков", "лайк", "лайка");
     }
 
     @Override public String numberOfRetweets(int num)
     {
 	if (num < 1)
-	    return "нет ретвитов";
+	    return "No retweets";
 	return "" + num + " " + Lang.afterNum(num, "ретвитов", "ретвит", "ретвита");
     }
 

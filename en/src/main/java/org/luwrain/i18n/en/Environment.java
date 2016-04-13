@@ -188,4 +188,30 @@ class Environment implements org.luwrain.core.Strings
 	return "" + num + "Б";
     }
 
+    @Override public String mainMenuName()
+    {
+	return "Main menu";
+    }
+
+    @Override public String mainMenuSection(String sect)
+    {
+	switch(sect)
+	    {
+	    case "luwrain-main-menu-internet":
+		return "Internet";
+			    case "luwrain-main-menu-doc":
+				return "Books and documents";
+					    case "luwrain-main-menu-tools":
+						return "Tools and accessories";
+					    case "luwrain-main-menu-exiting":
+						return "Exiting";
+	    default:
+		return sect;
+	    }
+    }
+
+    @Override public String contextMenuName()
+    {
+	return "Context menu";
+    }
 }

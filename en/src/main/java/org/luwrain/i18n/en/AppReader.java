@@ -5,72 +5,67 @@ class AppReader implements org.luwrain.app.reader.Strings
 {
     @Override public String appName()
     {
-	return "Просмотр документов";
+	return "Documents preview";
     }
 
     @Override public String sectionIntroduction(int level, String text)
     {
-	return text + " заголовок уровня " + level;
+	return text + " Section level " + level;
     }
 
     @Override public String tableIntroduction(int rows, int cols, String text)
     {
-	return text + " Таблица Строк " + rows + " Столбцов " + cols;
+	return text + " Table with " + rows + " rows and " + cols + "columns";
     }
 
     @Override public String tableIntroductionWithLevel(int level,
 						       int rows, int cols, String text)
     {
-	return text + " Таблица уровня " + level + " Строк " + rows + " Столбцов " + cols;
+	return text + " Table of level  " + level;
     }
 
     @Override public String tableCellIntroduction(int row, int col, String text)
     {
 	if (col == 1)
-return text + " Строка " + row; else
-return text + " Столбец " + col;
+return text + " row " + row; else
+return text + " column " + col;
     }
 
     @Override public String orderedListItemIntroduction(int index, String text)
     {
 	if (index == 0)
-	    return text + " Начало нумерованного списка ";
-	return text + " элемент списка " + (index + 1);
+	    return text + " Ordered list";
+	return text + " list item  " + (index + 1);
     }
 
     @Override public String unorderedListItemIntroduction(int index, String text)
     {
-	/*
-	if (index == 0)
-	    return text + " Начало ненумерованного списка ";
-	return text + "Ненумерованный элемент";
-	*/
 	return text;
     }
 
     @Override public String paragraphIntroduction(String text)
     {
-	return "Параграф " + text;
+	return "Paragraph " + text;
     }
 
     @Override public String noContent(boolean fetching)
     {
-	return fetching?"Идёт загрузка данных. Пожалуйста, подождите.":"Откройте документ при помощи контекстного меню";
+	return fetching?"Loading the document. Please wait.":"Open a document with the context menu";
     }
 
     @Override public String fetching(String url)
     {
-	return "Доставка " + url;
+	return "Fetching " + url;
     }
 
     @Override public String badUrl(String url)
     {
-	return "Неверно оформленная ссылка:" + url;
+	return "An invalid link:" + url;
     }
 
     @Override public String linkPrefix()
     {
-	return "Ссылка";
+	return "link";
     }
 
     @Override public String actionTitle(String actionName)
@@ -78,17 +73,17 @@ return text + " Столбец " + col;
 	switch(actionName)
 	{
 	case "open-file":
-	    return "Открыть файл";
+	    return "Open file";
 	case "open-url":
-	    return "Открыть URL";
+	    return "Open URL";
 	case "info":
-	    return "Информация о документе";
+	    return "Info about document";
 	case "change-format":
-	    return "Сменить формат";
+	    return "Change a format";
 	case "change-charset":
-	    return "Сменить кодировку";
+	    return "Change a charset";
 	case "open-in-narrator":
-	    return "Открыть в Рассказчике";
+	    return "Open in narrator";
 	default:
 	    return actionName;
 	}
@@ -96,22 +91,22 @@ return text + " Столбец " + col;
 
     @Override public String infoAreaName()
     {
-	return "Информация о документе";
+	return "Info about the document";
     }
 
     @Override public String bookTreeRoot()
     {
-	return "Книга";
+	return "book";
     }
 
     @Override public String treeAreaName()
     {
-	return "Разделы";
+	return "sections";
     }
 
     @Override public String notesAreaName()
     {
-	return "Закладки";
+	return "Bookmarks";
     }
 
     @Override public String infoPageField(String name)
@@ -121,35 +116,35 @@ return text + " Столбец " + col;
 	case "url":
 	    return "URL";
 	case "title":
-	    return "Заголовок";
+	    return "Section";
 	case "ncc:files":
-	    return "Файлов";
+	    return "Files";
 	case "ncc:multimediaType":
-	    return "Тип данных";
+	    return "Type of data";
 	case "dc:creator":
-	    return "Создатель";
+	    return "Creator";
 	case "ncc:generator":
-	    return "Подготовлено при помощи";
+	    return "Created by";
 	case "dc:format":
-	    return "Daisy-формат";
+	    return "Daisy-format";
 	case "dc:title":
-	    return "Daisy-заголовок";
+	    return "Daisy-header";
 	case "ncc:narrator":
-	    return "Чтец";
+	    return "Narrator";
 	case "ncc:sourceDate":
-	    return "Дата записи";
+	    return "Date of recording";
 	case "ncc:producedDate":
-	    return "Дата выпуска";
+	    return "Date of release";
 	case "dc:language":
-	    return "Язык";
+	    return "Language";
 	case "ncc:producer":
-	    return "Продюсер";
+	    return "Producer";
 	case "ncc:totalTime":
-	    return "Общее время";
+	    return "Total time";
 	case "dc:date":
-	    return "Дата";
+	    return "Date";
 	case "dc:publisher":
-	    return "Издатель";
+	    return "Publisher";
 	default:
 	    return "";
 	}

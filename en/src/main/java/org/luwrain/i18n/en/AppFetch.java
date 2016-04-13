@@ -20,27 +20,27 @@ class AppFetch implements org.luwrain.app.fetch.Strings
 {
     @Override public String appName()
     {
-	return "Доставка новостей";
+	return "News fetching";
     }
 
     @Override public String noNewsGroupsData()
     {
-	return "Отсутствует информация о новостных группах!";
+	return "No information about news groups";
     }
 
     @Override public String fetchingCompleted()
     {
-	return "Доставка электронной почты и новостей завершена!";
+	return "Fetching completed";
     }
 
     @Override public String newsGroupsError()
     {
-	return "Произошла ошибка при доставке информации о новостных группах, доставка новостей пропущена";
+	return "Unable to get information about news groups, skipping news fetching";
     }
 
     @Override public String noNewsGroups()
     {
-	return "Нет групп новостей, доставка новостей пропущена";
+	return "No news groups, skipping news fetching";
     }
 
     @Override public String newsFetchingError(String groupName)
@@ -64,73 +64,56 @@ class AppFetch implements org.luwrain.app.fetch.Strings
 
     @Override public String processAlreadyRunning()
     {
-	return "Доставка уже запущена";
+	return "Fetching is already launched";
     }
 
     @Override public String processNotFinished()
     {
-	return "Доставка ещё не завершена";
+	return "Fetching is not finished yet";
     }
 
     @Override public String readingMailFromAccount(String accountName)
     {
-	return "Чтение электронной почты с учётной записи \"" + accountName + "\"";
+	return "Reading mail from the account \"" + accountName + "\"";
     }
 
     @Override public String mailErrorWithAccount(String accountName)
     {
-	return "Произошла ошибка при доставке почты с учётной записи \"" + accountName + "\", учётная запись пропущена";
+	return "An error occurred while fetching mail from account \"" + accountName + "\", skipping the account";
     }
 
     public String connecting(String host)
     {
-	return "Подключение к серверу " + host;
+	return "Connecting to " + host;
     }
 
     public String noMailAccounts()
     {
-	return "Почтовых учётных записей нет, чтение электронной почты пропущено";
+	return "No mail accounts, skipping mail reading of mail";
     }
 
     @Override public String noMailStoring()
     {
-	return "Нет соединения для хранения электронной почты, чтение почты пропущено";
+	return "No mail storing, skipping reading of mail";
     }
 
     @Override public String mailAccountsProblem()
     {
-	return "Произошла ошибка при получении списка учётных записей электронной почты, чтение почты пропущено";
+	return "Unable to get a list of mail accounts, skipping reading of mail";
     }
-
-    /*
-    public String readingMailInFolder(String folder)
-    {
-	return "Открытие каталога \"" + folder + "\"";
-    }
-
-    public String readingMessage(int msgNum, int totalCount)
-    {
-	return "Получение сообщения " + msgNum + " из " + totalCount;
-    }
-
-    public String noMail()
-    {
-	return "Нет новых сообщений";
-    }
-*/
 
     public String fetchedMailMessages(int count)
     {
-	return "Получено сообщений: " + count;
+	return "Messages fetched: " + count;
     }
 
     @Override public String startingNewsFetching()
     {
-	return "Выполняется доставка новостей";
+	return "Reading mail";
     }
 
     @Override public String interrupted()
     {
-	return "Доставка прервана пользователем";
+	return "User has interrupted the fetching progress";
     }
 }

@@ -27,22 +27,22 @@ class AppCommander implements org.luwrain.app.commander.Strings
 {
     @Override public String appName()
     {
-	return "Обзор файлов и папок";
+	return "Commander";
     }
 
     @Override public String leftPanelName()
     {
-	return "Левая панель ";
+	return "Left panel";
     }
 
     @Override public String rightPanelName()
     {
-	return "Правая панель ";
+	return "Right panel";
     }
 
     @Override public String operationsAreaName()
     {
-	return "Действия";
+	return "Operations";
     }
 
     @Override public String panelActionTitle(String actionName, boolean multiple)
@@ -50,27 +50,27 @@ class AppCommander implements org.luwrain.app.commander.Strings
 	switch(actionName)
 	{
 	case "open":
-	    return "Открыть";
+	    return "Open";
 	case "edit-as-text":
-	    return "Редактировать как текст";
+	    return "Edit as text";
 	case "preview":
-	    return "Просмотр";
+	    return "Preview";
 	case "preview-another-format":
-	    return "Просмотр с указанием формата";
+	    return "Preview with choosing a format";
 	case "copy":
-	    return "Копировать";
+	    return "Copy";
 	case "move":
-	    return "Переименовать/переместить";
+	    return "Rename/move";
 	case "mkdir":
-	    return "Создать каталог";
+	    return "Create a directory";
 	case "delete":
-	    return "Удалить";
+	    return "Delete";
 	case "hidden-show":
-	    return "Показать скрытые файлы";
+	    return "Show hidden files ";
 	case "hidden-hide":
-	    return "Не показывать скрытые файлы";
+	    return "Hide hidden files";
 	case "info":
-	    return multiple?"Информация об объектах":"Информация об объекте";
+	    return multiple?"Info about the objects":"Info about the object";
 	default:
 	    return actionName;
 	}
@@ -82,7 +82,7 @@ class AppCommander implements org.luwrain.app.commander.Strings
 	switch(actionName)
 	{
 	case "close-info":
-	    return "Закрыть просмотр информации";
+	    return "Close information page";
 	default:
 	    return actionName;
 	}
@@ -90,7 +90,7 @@ class AppCommander implements org.luwrain.app.commander.Strings
 
     @Override public String copyPopupName()
     {
-	return "Копирование";
+	return "Copying";
     }
 
     @Override public String copyPopupPrefix(Path[] files)

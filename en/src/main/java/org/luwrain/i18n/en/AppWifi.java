@@ -20,6 +20,6 @@ class AppWifi implements org.luwrain.app.wifi.Strings
 {
     @Override public String appName()
     {
-	return "Подключение к сетям WiFi";
+	return "WiFi connections";
     }
 }
