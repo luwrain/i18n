@@ -20,46 +20,46 @@ class AppWiki implements org.luwrain.app.wiki.Strings
 {
     @Override public String appName()
     {
-	return "Поиск в Википедии";
+	return "Search in Wikipedia";
     }
 
     @Override public String querySuccess(int count)
     {
-	return "Найдено статей: " + count;
+	return "Articles found: " + count;
     }
 
     @Override public String searchEn()
     {
-	return "Поиск в английском языковом разделе";
+	return "Search in English Wikipedia";
     }
 
     @Override public String searchRu()
     {
-	return "Поиск в русском языковом разделе";
+	return "Search in Russian Wikipedia";
     }
 
     @Override public String errorSearching()
     {
-	return "При обработке запроса произошла ошибка";
+	return "Unable to perform a request";
     }
 
     @Override public String nothingFound()
     {
-	return "Ничего не найдено";
+	return "Nothing found";
     }
 
     @Override public String queryResults()
     {
-	return "Результаты поиска";
+	return "Search results";
     }
 
     @Override public String queryPopupName()
     {
-	return "Поиск в Википедии";
+	return "Search in Wikipedia";
     }
 
     @Override public String queryPopupPrefix()
     {
-	return "Выражения для поиска:";
+	return "Keywords to search:";
     }
 }

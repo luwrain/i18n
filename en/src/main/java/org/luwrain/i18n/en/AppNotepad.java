@@ -22,77 +22,77 @@ class AppNotepad implements org.luwrain.app.notepad.Strings
 {
     @Override public String appName()
     {
-	return "Блокнот";
+	return "Notepad";
     }
 
     @Override public String initialTitle()
     {
-	return "Блокнот";
+	return "Notepad";
     }
 
     @Override public String errorOpeningFile()
     {
-	return "Произошла ошибка при чтении файла";
+	return "Unable to read the file";
     }
 
     public String errorSavingFile()
     {
-	return "Произошла ошибка при сохранении файла";
+	return "Unable to save the file";
     }
 
     @Override public String fileIsSaved()
     {
-	return "Файл успешно сохранён";
+	return "File successfully saved";
     }
 
     @Override public String savePopupName()
     {
-	return "Сохранение файла";
+	return "File saving";
     }
 
     @Override public String savePopupPrefix()
     {
-	return "Введите имя файла для сохранения:";
+	return "Enter the name of a file to save:";
     }
 
     @Override public String saveChangesPopupName()
     {
-	return "Несохранённые изменения";
+	return "Unsaved changes";
     }
 
     @Override public String saveChangesPopupQuestion()
     {
-	return "Вы хотите сохранить изменения?";
+	return "Do you want to save the changes";
     }
 
     @Override public String noModificationsToSave()
     {
-	return "Нет изменений для сохранения";
+	return "No changes to save";
     }
 
     @Override public String charsetPopupName()
     {
-	return "Смена кодировки";
+	return "New charset";
     }
 
     @Override public String charsetPopupPrefix()
     {
-	return "Введите новую кодировку:";
+	return "Choose new charset:";
     }
 
     @Override public String invalidCharset()
     {
-	return "Введено недопустимое значение";
+	return "The invalid value has been entered";
     }
 
     @Override public String rereadAnotherCharsetPopupName()
     {
-	return "Смена кодировки";
+	return "Charset changing";
     }
 
     @Override public String rereadAnotherCharsetPopupQuestion()
     {
-	return "Вы хотите перечитать файл с учётом новой кодировки?";
+	return "Do you want to reread the file with new charset?";
     }
 
     @Override public String actionTitle(String name)
@@ -100,17 +100,17 @@ class AppNotepad implements org.luwrain.app.notepad.Strings
 	switch(name)
 	{
 	case "save":
-	    return "Сохранить";
+	    return "Save";
 	case "open-another-charset":
-	    return "Открыть с указанием кодировки";
+	    return "Open with specified charset";
 	case "save-another-charset":
-	    return "Сохранить с указанием кодировки";
+	    return "Save with specified charset";
 	case "remove-backslash-r":
-	    return "Удалить символы переноса строк Windows";
+	    return "Remove new lines chars in Windows style";
 	case "add-backslash-r":
-	    return "Добавить символы переноса строк Windows";
+	    return "Add new lines chars in Windows style";
 	default:
-	    return "#Неизвестное действие блокнота:" + name + "#";
+	    return "#Unknown notepad action:" + name + "#";
 	}
     }
 }

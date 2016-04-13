@@ -20,21 +20,21 @@ class AppOpds implements org.luwrain.app.opds.Strings
 {
     @Override public String appName()
     {
-	return "Каталоги книг";
+	return "Electronic libraries";
     }
 
     @Override public String catalog()
     {
-	return "Подкаталог";
+	return "Subentry";
     }
 
     @Override public String invalidLinkInSelectedEntry(String link)
     {
-	return "Выбраная запись содержит неверно оформленную ссылку:" + link;
+	return "Selected entry has an invalid link:" + link;
     }
 
     @Override public String noSuitableLinksInEntry()
     {
-	return "Не удалось выбрать подходящую ссылку для открытия документа";
+	return "Unable to select a suitable link for document opening";
     }
 }

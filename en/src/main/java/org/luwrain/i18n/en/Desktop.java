@@ -20,16 +20,16 @@ class Desktop implements org.luwrain.desktop.Strings
 {
     @Override public String appName()
     {
-	return "Рабочий стол";
+	return "Desktop";
     }
 
     @Override public String noApplications()
     {
-	return "Все приложения закрыты";
+	return "All applications closed";
     }
 
     @Override public String clickHereToCancelIntroduction()
     {
-	return "Нажмите ENTER на этой строке, чтобы отключить показ приветствия";
+	return "Press ENTER here to switch this greeting off";
     }
 }

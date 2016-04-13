@@ -22,7 +22,7 @@ class MainMenu
 {
     public String areaName()
     {
-	return "Главное меню";
+	return "Main menu";
         }
 
     public String currentDateTime()
@@ -106,6 +106,6 @@ class MainMenu
 
     public String noCommand()
     {
-	return "Для выбранного пункта главного меню в системе нет команды";
+	return "No command in the system for this main menu entry";
     }
 }

@@ -22,66 +22,66 @@ class AppNews implements org.luwrain.app.news.Strings
 {
     @Override public String appName()
     {
-	return "Новости";
+	return "News";
     }
 
     @Override public String groupsAreaName()
     {
-	return "Группы новостей";
+	return "News groups";
     }
 
     @Override public String summaryAreaName()
     {
-	return "Список статей";
+	return "Articles list";
     }
 
     @Override public String viewAreaName()
     {
-	return "Текст статьи";
+	return "Text of the article";
     }
 
     @Override public     String errorReadingArticles()
     {
-	return "Произошла ошибка доставки новостных статей.";
+	return "Unable to fetch news articles";
     }
 
     @Override public String readPrefix()
     {
-	return "прочитано";
+	return "Read";
     }
 
     @Override public String markedPrefix()
     {
-	return "помечено";
+	return "Marked";
     }
 
     @Override public String noSummaryItems()
     {
-	return "Новостные статьи отсутствуют";
+	return "No news article";
     }
 
     @Override public String noSummaryItemsAbove()
     {
-	return "Начало списка новостных статей";
+	return "No news articles above";
     }
 
     @Override public String noSummaryItemsBelow()
     {
-	return "Конец списка новостных статей";
+	return "No news articles below";
     }
 
     @Override public String errorUpdatingArticleState()
     {
-	return "Произошла ошибка сохранения состояния новостной статьи";
+	return "Unable to save the news article";
     }
 
     @Override public String noMoreUnreadInGroup()
     {
-	return "Просмотрены все статьи в группе";
+	return "No unread news articles in the group";
     }
 
     @Override public String passedTimeBrief(Date date)
     {
-	return new DateUtils().passedTimeBrief(date) + " назад";
+	return new DateUtils().passedTimeBrief(date) + " ago";
     }
 }
