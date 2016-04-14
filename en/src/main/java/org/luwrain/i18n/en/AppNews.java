@@ -84,4 +84,21 @@ class AppNews implements org.luwrain.app.news.Strings
     {
 	return new DateUtils().passedTimeBrief(date) + " ago";
     }
+
+    @Override public String groupsActionTitles(String actionName)
+    {
+	switch(actionName)
+	    {
+	    case "fetch":
+		return "Fetch news";
+	    case "mark-all-as-read":
+		return "Mark all articles as read";
+	    case "show-with-read-only":
+		return "Show groups with read articles only";
+	    case "hide-with-read-only":
+		return "Hide groups with read articles only";
+	    default:
+		return actionName;
+	    }
+    }
 }
