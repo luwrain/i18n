@@ -187,4 +187,19 @@ class Environment implements org.luwrain.core.Strings
     {
 	return "Отсутствует речевой вывод для последовательного чтения";
     }
+
+    @Override public String contextMenuName()
+    {
+	return "Контекстное меню";
+    }
+
+    @Override public String mainMenuSection(String sect)
+    {
+	return sect;
+    }
+
+    @Override public String mainMenuName()
+    {
+	return "Главное меню";
+    }
 }

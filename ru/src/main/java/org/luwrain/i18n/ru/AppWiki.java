@@ -62,4 +62,9 @@ class AppWiki implements org.luwrain.app.wiki.Strings
     {
 	return "Выражения для поиска:";
     }
+
+    @Override public String noContent()
+    {
+	return "Начните поиск статей при помощи контекстного меню";
+    }
 }

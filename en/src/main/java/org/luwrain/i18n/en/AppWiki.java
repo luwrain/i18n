@@ -62,4 +62,9 @@ class AppWiki implements org.luwrain.app.wiki.Strings
     {
 	return "Keywords to search:";
     }
+
+    @Override public String noContent()
+    {
+	return "Start search in Wikipedia with the context menu";
+    }
 }

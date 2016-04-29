@@ -84,4 +84,9 @@ class AppNews implements org.luwrain.app.news.Strings
     {
 	return new DateUtils().passedTimeBrief(date) + " назад";
     }
+
+@Override public String groupsActionTitles(String actionName)
+    {
+	return actionName;
+    }
 }
