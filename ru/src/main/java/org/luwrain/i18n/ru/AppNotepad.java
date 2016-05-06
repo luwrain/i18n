@@ -113,4 +113,9 @@ class AppNotepad implements org.luwrain.app.notepad.Strings
 	    return "#Неизвестное действие блокнота:" + name + "#";
 	}
     }
+
+    @Override public String infoAreaName()
+    {
+	return "Информация";
+    }
 }

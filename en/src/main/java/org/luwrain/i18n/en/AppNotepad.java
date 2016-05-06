@@ -113,4 +113,9 @@ class AppNotepad implements org.luwrain.app.notepad.Strings
 	    return "#Unknown notepad action:" + name + "#";
 	}
     }
+
+    @Override public String infoAreaName()
+    {
+	return "Information";
+    }
 }
