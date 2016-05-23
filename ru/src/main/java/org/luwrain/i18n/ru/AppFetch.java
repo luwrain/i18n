@@ -133,4 +133,23 @@ class AppFetch implements org.luwrain.app.fetch.Strings
     {
 	return "Доставка прервана пользователем";
     }
+
+    @Override public String actionTitle(String actionName)
+    {
+	switch(actionName)
+	{
+	case "fetch-all":
+	    return "Выполнить доставку";
+	case "fetch-news":
+	    return "Доставить только новости";
+	case "fetch-mail":
+	    return "Доставить только почту";
+	case "fetch-incoming-mail":
+	    return "Доставить только входящую почту";
+	case "fetch-outgoing-mail":
+	    return "Доставить только исходящую почту";
+	default:
+	    return actionName;
+	}
+    }
 }

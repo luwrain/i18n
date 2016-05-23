@@ -116,4 +116,9 @@ class AppFetch implements org.luwrain.app.fetch.Strings
     {
 	return "User has interrupted the fetching progress";
     }
+
+    @Override public String actionTitle(String actionName)
+    {
+	return actionName;
+    }
 }
