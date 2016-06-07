@@ -16,44 +16,44 @@
 
 package org.luwrain.i18n.en;
 
-class AppNarrator implements org.luwrain.app.narrator.Strings
+class AppNarrator
 {
-    @Override public String appName()
+    public String appName()
     {
 	return "Рассказчик";
     }
 
-    @Override public String targetDirPopupName()
+    public String targetDirPopupName()
     {
 	return "Каталог для сохранения книги";
     }
 
-    @Override public String targetDirPopupPrefix()
+    public String targetDirPopupPrefix()
     {
 	return "Выберите каталог для сохранения файлов книги:";
     }
 
-    @Override public String noTextToSynth()
+    public String noTextToSynth()
     {
 	return "Отсутствует текст для создания книги";
     }
 
-    @Override public String noChannelToSynth()
+    public String noChannelToSynth()
     {
 	return "Отсутствуют подходящие речевые синтезаторы";
     }
 
-    @Override public String noSupportedAudioFormats()
+    public String noSupportedAudioFormats()
     {
 	return "Отсутствуют поддерживаемые форматы звуковых данных";
     }
 
-    @Override public String done()
+    public String done()
     {
 	return "Готово!";
     }
 
-    @Override public String compressing(String fileName)
+    public String compressing(String fileName)
     {
 	return "Сжатие " + fileName;
     }

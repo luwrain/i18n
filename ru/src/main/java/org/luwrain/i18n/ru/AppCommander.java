@@ -20,8 +20,8 @@ import java.io.*;
 import java.nio.file.*;
 
 import org.luwrain.core.NullCheck;
-import org.luwrain.app.commander.Operation;
-import org.luwrain.app.commander.PanelArea;
+import org.luwrain.app.commander.operations.Operation;
+//import org.luwrain.app.commander.PanelArea;
 
 class AppCommander implements org.luwrain.app.commander.Strings
 {

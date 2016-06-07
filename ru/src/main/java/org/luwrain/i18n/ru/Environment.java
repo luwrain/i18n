@@ -16,10 +16,16 @@
 
 package org.luwrain.i18n.ru;
 
+import java.util.*;
 import org.luwrain.hardware.Partition;
 
 class Environment implements org.luwrain.core.Strings
 {
+    @Override public String pastTimeBrief(Date date)
+    {
+	return new DateUtils().passedTimeBrief(date) + " назад";
+    }
+
     @Override public String noClipboardContent()
     {
 	return "Нет данных в буфере обмена";

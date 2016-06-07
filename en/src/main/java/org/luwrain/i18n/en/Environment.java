@@ -21,6 +21,11 @@ import org.luwrain.core.NullCheck;
 
 class Environment implements org.luwrain.core.Strings
 {
+    @Override public String pastTimeBrief(java.util.Date date)
+    {
+	return "fixme ";
+    }
+
     @Override public String noClipboardContent()
     {
 	return "No data in clipboard";

@@ -47,7 +47,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("reader", "Documents preview", new AppReader(), ext);
 	save("wiki", "Wikipedia", new AppWiki(), ext);
 	save("twitter", "Twitter", new AppTwitter(), ext);
-	save("news", "News", new AppNews(), ext);
+	//	save("news", "News", new AppNews(), ext);
 	save("opds", "OPDS-libraries", new AppOpds(), ext);
 	save("narrator", "Narrator", new AppNarrator(), ext);
 	save("wifi", "Wifi-networks", new AppWifi(), ext);
