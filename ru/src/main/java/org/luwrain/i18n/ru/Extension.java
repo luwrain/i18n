@@ -47,7 +47,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("contacts", "Адресная книга", new AppContacts(), ext);
 	save("notepad", "Блокнот", new AppNotepad(), ext);
 	save("commander", "Обзор файлов и папок", new AppCommander(), ext);
-	save("reader", "Просмотр документов", new AppReader(), ext);
+	saveWithProxy("reader", "Просмотр документов", org.luwrain.app.reader.Strings.class, ext);
 	save("wiki", "Википедия", new AppWiki(), ext);
 	save("twitter", "Твиттер", new AppTwitter(), ext);
 	saveWithProxy("news", "Новости", org.luwrain.app.news.Strings.class, ext);
