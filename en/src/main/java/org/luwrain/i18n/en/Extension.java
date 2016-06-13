@@ -50,7 +50,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	//	save("news", "News", new AppNews(), ext);
 	save("opds", "OPDS-libraries", new AppOpds(), ext);
 	save("narrator", "Narrator", new AppNarrator(), ext);
-	save("wifi", "Wifi-networks", new AppWifi(), ext);
+	//	save("wifi", "Wifi-networks", new AppWifi(), ext);
 	save("player", "Mediaplayer", new AppPlayer(), ext);
 	save("calc", "Calculator", new AppCalc(), ext);
  	ext.addCommandTitle(LANG_NAME, "reader-search-google", "Search in Google");

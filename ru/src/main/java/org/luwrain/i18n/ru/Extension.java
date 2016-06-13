@@ -53,7 +53,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	saveWithProxy("news", "Новости", org.luwrain.app.news.Strings.class, ext);
 	save("opds", "Каталоги книг", new AppOpds(), ext);
 	saveWithProxy("narrator", "Рассказчик", org.luwrain.app.narrator.Strings.class, ext);
-	save("wifi", "Подключение к WiFi-сетям", new AppWifi(), ext);
+	saveWithProxy("wifi", "Подключение к WiFi-сетям", org.luwrain.app.wifi.Strings.class, ext);
 	save("player", "Медиаплеер", new AppPlayer(), ext);
 	save("calc", "Калькулятор", new AppCalc(), ext);
  	ext.addCommandTitle("ru", "reader-search-google", "Поиск в Google");
