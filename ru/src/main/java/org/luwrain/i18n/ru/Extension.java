@@ -26,7 +26,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 
     @Override public void i18nExtension(Luwrain luwrain, I18nExtension ext)
     {
-	ext.addLang("ru", new Lang(ext.getStaticValueNames()));
+	ext.addLang("ru", new Lang());
 
 	ext.addCommandTitle("ru", "quit", "Завершить работу в Luwrain");
 	ext.addCommandTitle("ru", "shutdown", "Выключить компьютер");

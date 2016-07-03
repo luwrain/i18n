@@ -28,7 +28,7 @@ class ResourceConstants
 
     ResourceConstants()
     {
-	URL url = ClassLoader.getSystemResource(RESOURCE_PATH);
+	final URL url = ClassLoader.getSystemResource(RESOURCE_PATH);
 	try {
 	    properties.load(new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8")));
 	}

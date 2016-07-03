@@ -16,35 +16,17 @@
 
 package org.luwrain.i18n.ru;
 
-import org.luwrain.core.LangStatic;
+import org.luwrain.core.*;
 
-class Lang extends org.luwrain.core.Lang
+class Lang implements org.luwrain.core.Lang
 {
-    private String[] staticValues;
+    private final ResourceConstants constants = new ResourceConstants();
 
-    Lang(String[] staticValueNames)
+    @Override public String getStaticStr(String id)
     {
-	final ResourceConstants res = new ResourceConstants();
-	staticValues = new String[staticValueNames.length];
-	for(int i = 0;i < staticValueNames.length;++i)
-	{
-	    if (staticValueNames[i] != null)
-	    {
-		final String s = res.value("static." + staticValueNames[i]);
-		if (s != null && !s.isEmpty())
-		    staticValues[i] = s; else
-		    System.out.println("warning:ru:no resource value \"static." + staticValueNames[i] + "\"");
-	    } else 
-		staticValues[i] = null;
-	}
-    }
-
-    @Override public String staticStr(int code)
-    {
-	if (code < 0 || code >= staticValues.length ||
-staticValues[code] == null)
-	    return "#Неизвестный идентификатор строки " + code + "#";
-	return staticValues[code];
+	NullCheck.notNull(id, "id");
+	final String value = constants.value("static." + id); 
+	return value != null?value.trim():"#Неизвестный идентификатор строки: \'" + id + "\'#";
     }
 
     @Override public String hasSpecialNameOfChar(char ch)
