@@ -29,6 +29,12 @@ class Lang implements org.luwrain.core.Lang
 	return value != null?value.trim():"#Неизвестный идентификатор строки: \'" + id + "\'#";
     }
 
+    @Override public String pastTimeBrief(java.util.Date date)
+    {
+	return new DateUtils().passedTimeBrief(date) + " назад";
+    }
+
+
     @Override public String hasSpecialNameOfChar(char ch)
     {
 	if (Character.isDigit(ch) || Character.isLetter(ch))
@@ -125,5 +131,32 @@ return "Символ переноса строки в стиле Windows";
 	    return afterTwo;
 	return afterZero;
     }
+
+    private String bytesNum(long num)
+    {
+	if (num > 1024 * 1024 * 1024)
+	{
+	    final long g = num / (1024 * 1024 * 1024);
+	    long rest = num - (g * 1024 * 1024 * 1024);
+	    rest /= (102 * 1024 * 1024);
+	    return g + "," + rest + "ГБ";
+	}
+	if (num > 1024 * 1024)
+	{
+	    final long m = num / (1024 * 1024);
+	    long rest = num - (m * 1024 * 1024);
+	    rest /= (102 * 1024);
+	    return m + "," + rest + "МБ";
+	}
+	if (num > 1024)
+	{
+	    final long k = num / 1024;
+	    long rest = num - (k * 1024);
+	    rest /= 102;
+	    return k + "," + rest + "КБ";
+	}
+	return "" + num + "Б";
+    }
+
 
 }

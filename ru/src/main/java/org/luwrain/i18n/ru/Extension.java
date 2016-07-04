@@ -36,7 +36,6 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	ext.addStrings("ru", "main-menu", new MainMenu());
 	ext.addStrings("ru", "luwrain.crash", new AppCrash());
 	ext.addStrings("ru", org.luwrain.desktop.App.STRINGS_NAME, new Desktop());
-	ext.addStrings("ru", "luwrain.environment", new Environment());
 
 	save("control-panel", "Панель управления", new AppControl(), ext);
 	save("registry", "Редактор реестра", new AppRegistry(), ext);
