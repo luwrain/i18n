@@ -45,7 +45,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("fetch", "Доставка почты и новостей", new AppFetch(), ext);
 	save("contacts", "Адресная книга", new AppContacts(), ext);
 	saveWithProxy("notepad", "Блокнот", org.luwrain.app.notepad.Strings.class, ext);
-	save("commander", "Обзор файлов и папок", new AppCommander(), ext);
+	saveWithProxy("commander", "Обзор файлов и папок", org.luwrain.app.commander.Strings.class, ext);
 	saveWithProxy("reader", "Просмотр документов", org.luwrain.app.reader.Strings.class, ext);
 	save("wiki", "Википедия", new AppWiki(), ext);
 	save("twitter", "Твиттер", new AppTwitter(), ext);
@@ -58,13 +58,9 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
  	ext.addCommandTitle("ru", "reader-search-google", "Поиск в Google");
  	ext.addCommandTitle("ru", "reader-luwrain-homepage", "Домашняя страница LUWRAIN");
  	ext.addCommandTitle("ru", "open-url", "Открыть веб-страницу");
-    }
-
-    private void save(String name, String command,
-		 Object strings, I18nExtension ext)
-    {
- 	ext.addCommandTitle("ru", name, command);
-	ext.addStrings("ru", "luwrain." + name, strings);
+	saveProxy("extensions.voiceman", org.luwrain.extensions.voiceman.Strings.class, ext);
+	saveProxy("extensions.cmdtts", org.luwrain.extensions.cmdtts.Strings.class, ext);
+	saveProxy("extensions.emacspeak", org.luwrain.extensions.emacspeak.Strings.class, ext);
     }
 
     private void saveWithProxy(String name, String command,
@@ -80,4 +76,24 @@ strings = PropertiesProxy.create(ClassLoader.getSystemResource(CONSTANTS_PROPERT
 	}
 	save(name, command, strings, ext);
 	}
+
+    private void saveProxy(String name, Class stringsClass, I18nExtension ext)
+    {
+	Object strings = null;
+	try {
+strings = PropertiesProxy.create(ClassLoader.getSystemResource(CONSTANTS_PROPERTIES_RESOURCE), name + ".", stringsClass);
+	}
+	catch(java.io.IOException e)
+	{
+	    e.printStackTrace();
+	}
+	ext.addStrings("ru", "luwrain." + name, strings);
+	}
+
+    private void save(String name, String command,
+		 Object strings, I18nExtension ext)
+    {
+ 	ext.addCommandTitle("ru", name, command);
+	ext.addStrings("ru", "luwrain." + name, strings);
+    }
 }

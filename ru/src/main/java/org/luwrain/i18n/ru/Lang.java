@@ -114,6 +114,18 @@ return "Символ переноса строки в стиле Windows";
 	}
     }
 
+    @Override public String getNumberStr(int count, String entities)
+    {
+	NullCheck.notNull(entities, "entities");
+	switch(entities)
+	{
+	case "items":
+return     "" + count + " " + afterNum(count, "элементов", "элемент", "элемента");
+	default:
+	    return "##Неизвестный тип сущностей \'" + entities + "\'#";
+	}
+    }
+
     static String afterNum(int num,
 			   String afterZero,
 			   String afterOne,
@@ -127,7 +139,7 @@ return "Символ переноса строки в стиле Windows";
 	    return afterZero;
 	if (num % 10 == 1)
 	    return afterOne;
-	if (num % 10 >= 2 && num % 10 < 4)
+	if (num % 10 >= 2 && num % 10 <= 4)
 	    return afterTwo;
 	return afterZero;
     }
@@ -157,6 +169,4 @@ return "Символ переноса строки в стиле Windows";
 	}
 	return "" + num + "Б";
     }
-
-
 }
