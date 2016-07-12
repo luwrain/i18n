@@ -24,7 +24,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
     
     @Override public void i18nExtension(Luwrain luwrain, I18nExtension ext)
     {
-	ext.addLang(LANG_NAME, new Lang(ext.getStaticValueNames()));
+	//	ext.addLang(LANG_NAME, new Lang(ext.getStaticValueNames()));
 
 	ext.addCommandTitle(LANG_NAME, "quit", "Quit");
 	ext.addCommandTitle(LANG_NAME, "shutdown", "Shutdown");
@@ -33,7 +33,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 
 	ext.addStrings(LANG_NAME, "main-menu", new MainMenu());
 	ext.addStrings(LANG_NAME, org.luwrain.desktop.App.STRINGS_NAME, new Desktop());
-	ext.addStrings(LANG_NAME, "luwrain.environment", new Environment());
+	//	ext.addStrings(LANG_NAME, "luwrain.environment", new Environment());
 
 	save("control-panel", "Control panel", new AppControl(), ext);
 	save("registry", "Registry editor", new AppRegistry(), ext);
@@ -42,8 +42,8 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("message", "Message", new AppMessage(), ext);
 	save("fetch", "Mail and news fetching", new AppFetch(), ext);
 	save("contacts", "Address book", new AppContacts(), ext);
-	save("notepad", "Notepad", new AppNotepad(), ext);
-	save("commander", "Commander", new AppCommander(), ext);
+	//	save("notepad", "Notepad", new AppNotepad(), ext);
+	//	save("commander", "Commander", new AppCommander(), ext);
 	//	save("reader", "Documents preview", new AppReader(), ext);
 	save("wiki", "Wikipedia", new AppWiki(), ext);
 	save("twitter", "Twitter", new AppTwitter(), ext);
@@ -51,7 +51,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("opds", "OPDS-libraries", new AppOpds(), ext);
 	save("narrator", "Narrator", new AppNarrator(), ext);
 	//	save("wifi", "Wifi-networks", new AppWifi(), ext);
-	save("player", "Mediaplayer", new AppPlayer(), ext);
+	//	save("player", "Mediaplayer", new AppPlayer(), ext);
 	save("calc", "Calculator", new AppCalc(), ext);
  	ext.addCommandTitle(LANG_NAME, "reader-search-google", "Search in Google");
  	ext.addCommandTitle(LANG_NAME, "reader-luwrain-homepage", "LUWRAIN homepage");

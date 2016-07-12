@@ -18,7 +18,7 @@ package org.luwrain.i18n.en;
 
 import org.luwrain.core.LangStatic;
 
-class Lang extends org.luwrain.core.Lang
+class Lang implements org.luwrain.core.Lang
 {
     private String[] staticValues;
 
@@ -39,7 +39,7 @@ class Lang extends org.luwrain.core.Lang
 	}
     }
 
-    @Override public String staticStr(int code)
+public String staticStr(int code)
     {
 	if (code < 0 || code >= staticValues.length ||
 staticValues[code] == null)
@@ -142,6 +142,21 @@ return "Символ переноса строки в стиле Windows";
 	if (num % 10 >= 2 && num % 10 < 4)
 	    return afterTwo;
 	return afterZero;
+    }
+
+    @Override public String getNumberStr(int num, String entities)
+    {
+	return "fixme";
+    }
+
+@Override public String pastTimeBrief(java.util.Date date)
+    {
+	return "fixme";
+    }
+
+@Override public String getStaticStr(String id)
+    {
+	return "fixme";
     }
 
 }
