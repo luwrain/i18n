@@ -61,6 +61,10 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	saveProxy("extensions.voiceman", org.luwrain.extensions.voiceman.Strings.class, ext);
 	saveProxy("extensions.cmdtts", org.luwrain.extensions.cmdtts.Strings.class, ext);
 	saveProxy("extensions.emacspeak", org.luwrain.extensions.emacspeak.Strings.class, ext);
+
+	saveProxy("settings.mail", org.luwrain.settings.mail.Strings.class, ext);
+	saveProxy("settings.news", org.luwrain.settings.news.Strings.class, ext);
+
     }
 
     private void saveWithProxy(String name, String command,
