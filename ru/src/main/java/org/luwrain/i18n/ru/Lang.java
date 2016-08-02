@@ -121,8 +121,21 @@ return "Символ переноса строки в стиле Windows";
 	{
 	case "items":
 return     "" + count + " " + afterNum(count, "элементов", "элемент", "элемента");
+
+	case "percents":
+return     "" + count + " " + afterNum(count, "процентов", "процент", "процента");
+
+	case "hours":
+return     "" + count + " " + afterNum(count, "часов", "час", "часа");
+
+	case "minutes":
+return     "" + count + " " + afterNum(count, "минут", "минута", "минуты");
+
+
+
+
 	default:
-	    return "##Неизвестный тип сущностей \'" + entities + "\'#";
+	    return "#Неизвестный тип сущностей \'" + entities + "\'#";
 	}
     }
 
