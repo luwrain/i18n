@@ -16,12 +16,29 @@
 
 package org.luwrain.i18n.ru;
 
+import java.util.*;
+
 import org.luwrain.core.*;
 import org.luwrain.i18n.*;
 
 public class Extension extends org.luwrain.core.extensions.EmptyExtension
 {
     static private final String CONSTANTS_PROPERTIES_RESOURCE = "org/luwrain/i18n/ru/constants.properties";
+
+    private final Map<String, String> stringsMap = new HashMap<String, String>(){{
+	    put("notepad", "org.luwrain.app.notepad.Strings");
+	    put("commander", "org.luwrain.app.commander.Strings");
+	    put("reader", "org.luwrain.app.reader.Strings");
+	    put("news", "org.luwrain.app.news.Strings");
+	    put("narrator", "org.luwrain.app.narrator.Strings");
+	    put("wifi", "org.luwrain.app.wifi.Strings");
+	    put("player", "org.luwrain.app.player.Strings");
+	    put("extensions.voiceman", "org.luwrain.extensions.voiceman.Strings");
+	    put("extensions.cmdtts", "org.luwrain.extensions.cmdtts.Strings");
+	    put("extensions.emacspeak", "org.luwrain.extensions.emacspeak.Strings");
+	    put("settings.mail", "org.luwrain.settings.mail.Strings");
+	    put("settings.news", "org.luwrain.settings.news.Strings");
+	}};
 
 
     @Override public void i18nExtension(Luwrain luwrain, I18nExtension ext)
@@ -49,11 +66,11 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	saveWithProxy("reader", "Просмотр документов", org.luwrain.app.reader.Strings.class, ext);
 	save("wiki", "Википедия", new AppWiki(), ext);
 	save("twitter", "Твиттер", new AppTwitter(), ext);
-	saveWithProxy("news", "Новости", org.luwrain.app.news.Strings.class, ext);
+	saveWithProxy("news", "Новости", "org.luwrain.app.news.Strings", ext);
 	save("opds", "Каталоги книг", new AppOpds(), ext);
 	saveWithProxy("narrator", "Рассказчик", org.luwrain.app.narrator.Strings.class, ext);
 	saveWithProxy("wifi", "Подключение к WiFi-сетям", org.luwrain.app.wifi.Strings.class, ext);
-	saveWithProxy("player", "Медиаплеер", org.luwrain.app.player.Strings.class, ext);
+	saveWithProxy("player", "Медиаплеер", "org.luwrain.app.player.Strings", ext);
 	save("calc", "Калькулятор", new AppCalc(), ext);
  	ext.addCommandTitle("ru", "reader-search-google", "Поиск в Google");
  	ext.addCommandTitle("ru", "reader-luwrain-homepage", "Домашняя страница LUWRAIN");
@@ -64,7 +81,6 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 
 	saveProxy("settings.mail", org.luwrain.settings.mail.Strings.class, ext);
 	saveProxy("settings.news", org.luwrain.settings.news.Strings.class, ext);
-
     }
 
     private void saveWithProxy(String name, String command,
@@ -80,6 +96,30 @@ strings = PropertiesProxy.create(ClassLoader.getSystemResource(CONSTANTS_PROPERT
 	}
 	save(name, command, strings, ext);
 	}
+
+    private void saveWithProxy(String name, String command,
+String stringsClassName, I18nExtension ext)
+    {
+	Class stringsClass = null;
+	try {
+	stringsClass = Class.forName(stringsClassName);
+	}
+	catch(ClassNotFoundException e)
+	{
+	    e.printStackTrace();
+	    return;
+	}
+	Object strings = null;
+	try {
+strings = PropertiesProxy.create(ClassLoader.getSystemResource(CONSTANTS_PROPERTIES_RESOURCE), name + ".", stringsClass);
+	}
+	catch(java.io.IOException e)
+	{
+	    e.printStackTrace();
+	}
+	save(name, command, strings, ext);
+	}
+
 
     private void saveProxy(String name, Class stringsClass, I18nExtension ext)
     {
