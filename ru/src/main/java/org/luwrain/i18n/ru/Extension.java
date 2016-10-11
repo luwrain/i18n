@@ -46,6 +46,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	ext.addLang("ru", new Lang());
 
 	ext.addCommandTitle("ru", "quit", "Завершить работу в Luwrain");
+	ext.addCommandTitle("ru", "reader-open-auto", "Найти в интернете");
 	ext.addCommandTitle("ru", "shutdown", "Выключить компьютер");
 	ext.addCommandTitle("ru", "suspend", "Спящий режим");
 	ext.addCommandTitle("ru", "reboot", "Перезагрузить компьютер");
@@ -67,7 +68,7 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("wiki", "Википедия", new AppWiki(), ext);
 	save("twitter", "Твиттер", new AppTwitter(), ext);
 	saveWithProxy("news", "Новости", "org.luwrain.app.news.Strings", ext);
-	save("opds", "Каталоги книг", new AppOpds(), ext);
+	save("opds", "Электронные библиотеки", new AppOpds(), ext);
 	saveWithProxy("narrator", "Рассказчик", org.luwrain.app.narrator.Strings.class, ext);
 	saveWithProxy("wifi", "Подключение к WiFi-сетям", org.luwrain.app.wifi.Strings.class, ext);
 	saveWithProxy("player", "Медиаплеер", "org.luwrain.app.player.Strings", ext);
