@@ -34,7 +34,6 @@ class Lang implements org.luwrain.core.Lang
 	return new DateUtils().passedTimeBrief(date) + " назад";
     }
 
-
     @Override public String hasSpecialNameOfChar(char ch)
     {
 	if (Character.isDigit(ch) || Character.isLetter(ch))
