@@ -35,22 +35,6 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 
     private final Map<String, String> staticStrings = new HashMap<String, String>();
 
-    private final Map<String, String> stringsMap = new HashMap<String, String>(){{
-	    put("notepad", "org.luwrain.app.notepad.Strings");
-	    put("commander", "org.luwrain.app.commander.Strings");
-	    put("reader", "org.luwrain.app.reader.Strings");
-	    put("news", "org.luwrain.app.news.Strings");
-	    put("narrator", "org.luwrain.app.narrator.Strings");
-	    put("wifi", "org.luwrain.app.wifi.Strings");
-	    put("player", "org.luwrain.app.player.Strings");
-	    put("extensions.voiceman", "org.luwrain.extensions.voiceman.Strings");
-	    put("extensions.cmdtts", "org.luwrain.extensions.cmdtts.Strings");
-	    put("extensions.emacspeak", "org.luwrain.extensions.emacspeak.Strings");
-	    put("settings.mail", "org.luwrain.settings.mail.Strings");
-	    put("settings.news", "org.luwrain.settings.news.Strings");
-	}};
-
-
     @Override public void i18nExtension(Luwrain luwrain, I18nExtension ext)
     {
 	try {
@@ -60,13 +44,9 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	{
 	    e.printStackTrace();
 	}
+
 	ext.addLang("ru", new Lang());
 
-	ext.addCommandTitle("ru", "quit", "Завершить работу в Luwrain");
-	ext.addCommandTitle("ru", "reader-open-auto", "Найти в интернете");
-	ext.addCommandTitle("ru", "shutdown", "Выключить компьютер");
-	ext.addCommandTitle("ru", "suspend", "Спящий режим");
-	ext.addCommandTitle("ru", "reboot", "Перезагрузить компьютер");
 
 	ext.addStrings("ru", "main-menu", new MainMenu());
 	ext.addStrings("ru", "luwrain.crash", new AppCrash());
@@ -74,70 +54,14 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 
 	save("control-panel", "Панель управления", new AppControl(), ext);
 	save("registry", "Редактор реестра", new AppRegistry(), ext);
-	save("term", "Терминал", new AppTerm(), ext);
-	//	save("mail", "Почта", new AppMail(), ext);
 	save("message", "Сообщение", new AppMessage(), ext);
 	save("fetch", "Доставка почты и новостей", new AppFetch(), ext);
 	save("contacts", "Адресная книга", new AppContacts(), ext);
 	save("wiki", "Википедия", new AppWiki(), ext);
 	save("twitter", "Твиттер", new AppTwitter(), ext);
-	//	saveWithProxy("news", "Новости", "org.luwrain.app.news.Strings", ext);
 	save("opds", "Электронные библиотеки", new AppOpds(), ext);
-	//	saveWithProxy("narrator", "Рассказчик", org.luwrain.app.narrator.Strings.class, ext);
-	//	saveWithProxy("wifi", "Подключение к WiFi-сетям", org.luwrain.app.wifi.Strings.class, ext);
-	//	saveWithProxy("player", "Медиаплеер", "org.luwrain.app.player.Strings", ext);
 	save("calc", "Калькулятор", new AppCalc(), ext);
- 	ext.addCommandTitle("ru", "reader-search-google", "Поиск в Google");
- 	ext.addCommandTitle("ru", "reader-luwrain-homepage", "Домашняя страница LUWRAIN");
- 	ext.addCommandTitle("ru", "open-url", "Открыть веб-страницу");
-	//	saveProxy("extensions.voiceman", org.luwrain.extensions.voiceman.Strings.class, ext);
-//	saveProxy("extensions.cmdtts", org.luwrain.extensions.cmdtts.Strings.class, ext);
-	//	saveProxy("extensions.emacspeak", org.luwrain.extensions.emacspeak.Strings.class, ext);
-
-	//	//	saveProxy("settings.mail", org.luwrain.settings.mail.Strings.class, ext);
-	///	//	saveProxy("settings.news", org.luwrain.settings.news.Strings.class, ext);
     }
-
-    /*
-    private void saveWithProxy(String name, String command,
-		 Class stringsClass, I18nExtension ext)
-    {
-	Object strings = null;
-	try {
-strings = PropertiesProxy.create(ClassLoader.getSystemResource(CONSTANTS_PROPERTIES_RESOURCE), name + ".", stringsClass);
-	}
-	catch(java.io.IOException e)
-	{
-	    e.printStackTrace();
-	}
-	save(name, command, strings, ext);
-	}
-    */
-
-    /*
-    private void saveWithProxy(String name, String command,
-String stringsClassName, I18nExtension ext)
-    {
-	Class stringsClass = null;
-	try {
-	stringsClass = Class.forName(stringsClassName);
-	}
-	catch(ClassNotFoundException e)
-	{
-	    e.printStackTrace();
-	    return;
-	}
-	Object strings = null;
-	try {
-strings = PropertiesProxy.create(ClassLoader.getSystemResource(CONSTANTS_PROPERTIES_RESOURCE), name + ".", stringsClass);
-	}
-	catch(java.io.IOException e)
-	{
-	    e.printStackTrace();
-	}
-	save(name, command, strings, ext);
-	}
-    */
 
     private void save(String name, String command,
 		 Object strings, I18nExtension ext)
@@ -158,7 +82,7 @@ strings = PropertiesProxy.create(ClassLoader.getSystemResource(CONSTANTS_PROPERT
 	    return false;
 	}
 	ext.addStrings("ru", "luwrain." + name, strings);
-	return false;
+	return true;
 	}
 
     private boolean addProxy(String name, String className, I18nExtension ext)
@@ -172,7 +96,6 @@ strings = PropertiesProxy.create(ClassLoader.getSystemResource(CONSTANTS_PROPERT
 	}
 	catch (ClassNotFoundException e)
 	{
-	    e.printStackTrace();
 	    return false;
 	}
 	return saveProxy(name, cl, ext);
