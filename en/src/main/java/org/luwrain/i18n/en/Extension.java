@@ -31,37 +31,25 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	ext.addCommandTitle(LANG_NAME, "suspend", "Suspend");
 	ext.addCommandTitle(LANG_NAME, "reboot", "Reboot");
 
-	ext.addStrings(LANG_NAME, "main-menu", new MainMenu());
-	ext.addStrings(LANG_NAME, org.luwrain.desktop.App.STRINGS_NAME, new Desktop());
-	//	ext.addStrings(LANG_NAME, "luwrain.environment", new Environment());
-
-	save("control-panel", "Control panel", new AppControl(), ext);
-	save("registry", "Registry editor", new AppRegistry(), ext);
-	save("term", "Terminal", new AppTerm(), ext);
-	save("mail", "Mail", new AppMail(), ext);
-	save("message", "Message", new AppMessage(), ext);
-	save("fetch", "Mail and news fetching", new AppFetch(), ext);
-	save("contacts", "Address book", new AppContacts(), ext);
+	//mainmenu
+	//desktop
+	//control panel
+	//registry
+	//term
+	//mail
+	//message
+	//fetch
+	//contacts
 	//	save("notepad", "Notepad", new AppNotepad(), ext);
 	//	save("commander", "Commander", new AppCommander(), ext);
 	//	save("reader", "Documents preview", new AppReader(), ext);
-	save("wiki", "Wikipedia", new AppWiki(), ext);
-	save("twitter", "Twitter", new AppTwitter(), ext);
+	//wiki
+	//twitter
 	//	save("news", "News", new AppNews(), ext);
 	//	save("opds", "OPDS-libraries", new AppOpds(), ext);
-	save("narrator", "Narrator", new AppNarrator(), ext);
+	//narrator
 	//	save("wifi", "Wifi-networks", new AppWifi(), ext);
 	//	save("player", "Mediaplayer", new AppPlayer(), ext);
-	save("calc", "Calculator", new AppCalc(), ext);
- 	ext.addCommandTitle(LANG_NAME, "reader-search-google", "Search in Google");
- 	ext.addCommandTitle(LANG_NAME, "reader-luwrain-homepage", "LUWRAIN homepage");
- 	ext.addCommandTitle(LANG_NAME, "open-url", "Browse URL");
-    }
-
-    private void save(String name, String command,
-		 Object strings, I18nExtension ext)
-    {
- 	ext.addCommandTitle(LANG_NAME, name, command);
-	ext.addStrings(LANG_NAME, "luwrain." + name, strings);
+	//calc
     }
 }

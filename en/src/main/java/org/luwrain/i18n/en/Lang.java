@@ -1,5 +1,5 @@
 /*
-   Copyright 2012-2015 Michael Pozhidaev <michael.pozhidaev@gmail.com>
+   Copyright 2012-2016 Michael Pozhidaev <michael.pozhidaev@gmail.com>
 
    This file is part of the LUWRAIN.
 
@@ -16,114 +16,27 @@
 
 package org.luwrain.i18n.en;
 
-import org.luwrain.core.LangStatic;
+import java.util.*;
 
-class Lang implements org.luwrain.core.Lang
+import org.luwrain.core.*;
+import org.luwrain.i18n.*;
+
+class Lang extends LangBase
 {
-    private String[] staticValues;
-
-    Lang(String[] staticValueNames)
+    Lang(Map<String, String> staticStrings,
+	 Map<String, String> chars)
     {
-	final ResourceConstants res = new ResourceConstants();
-	staticValues = new String[staticValueNames.length];
-	for(int i = 0;i < staticValueNames.length;++i)
-	{
-	    if (staticValueNames[i] != null)
-	    {
-		final String s = res.value("static." + staticValueNames[i]);
-		if (s != null && !s.isEmpty())
-		    staticValues[i] = s; else
-		    System.out.println("warning:ru:no resource value \"static." + staticValueNames[i] + "\"");
-	    } else 
-		staticValues[i] = null;
-	}
+	super(staticStrings, chars);
     }
 
-public String staticStr(int code)
+    @Override public String getNumberStr(int num, String entities)
     {
-	if (code < 0 || code >= staticValues.length ||
-staticValues[code] == null)
-	    return "#Неизвестный идентификатор строки " + code + "#";
-	return staticValues[code];
+	return "fixme";
     }
 
-    @Override public String hasSpecialNameOfChar(char ch)
+@Override public String pastTimeBrief(java.util.Date date)
     {
-	if (Character.isDigit(ch) || Character.isLetter(ch))
-	    return null;
-	switch(ch)
-	{
-	case '\r':
-return "Символ переноса строки в стиле Windows";
-	case '—':
-	    return "длинное тире";
-	case '~':
-	    return "тильда";
-	case '`':
-	    return "обратный апостроф";
-	case '!':
-	    return "восклицательный знак";
-	case '@':
-	    return "собачка";
-	case '#':
-	    return "диез";
-	case '$':
-	    return "доллар";
-	case '%':
-	    return "процент";
-	case '^':
-	    return "знак степени";
-	case '&':
-	    	    return "амперсант";
-	case '*':
-	    return "звезда";
-	case '(':
-	    return "левая круглая скобка";
-	case ')':
-	    return "правая круглая скобка";
-	case '_':
-	    return "знак подчёркивания";
-	case '-':
-	    return "дефис";
-	case '+':
-	    return "плюс";
-	case '=':
-	    return "равно";
-	case '[':
-	    return "левая квадратная скобка";
-	case ']':
-	    return "правая квадратная скобка";
-	case '{':
-	    return "левая фигурная скобка";
-	case '}':
-	    return "правая фигурная скобка";
-	case ':':
-    return "двоеточие";
-	case ';':
-	    return "точка с запятой";
-	case '\\':
-	    return "обратная наклонная черта";
-	case '|':
-	    return "вертикальная черта";
-	case '\'':
-	    return "апостроф";
-	case '\"':
-	    return "двойная кавычка";
-	case '/':
-	    return "прямая наклонная черта";
-	case '?':
-	    return "вопросительный знак";
-	case '<':
-	    return "меньше";
-	case '>':
-	    return "больше";
-	case ',':
-	    return "запятая";
-	case '.':
-	    return "точка";
-	default:
-	    return Character.getName(ch);
-	}
+	return "fixme";
     }
 
     static String afterNum(int num,
@@ -142,21 +55,6 @@ return "Символ переноса строки в стиле Windows";
 	if (num % 10 >= 2 && num % 10 < 4)
 	    return afterTwo;
 	return afterZero;
-    }
-
-    @Override public String getNumberStr(int num, String entities)
-    {
-	return "fixme";
-    }
-
-@Override public String pastTimeBrief(java.util.Date date)
-    {
-	return "fixme";
-    }
-
-@Override public String getStaticStr(String id)
-    {
-	return "fixme";
     }
 
 }
