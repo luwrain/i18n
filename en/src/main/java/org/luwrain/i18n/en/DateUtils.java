@@ -1,5 +1,5 @@
 /*
-   Copyright 2012-2015 Michael Pozhidaev <michael.pozhidaev@gmail.com>
+   Copyright 2012-2016 Michael Pozhidaev <michael.pozhidaev@gmail.com>
 
    This file is part of the LUWRAIN.
 
@@ -17,7 +17,8 @@
 package org.luwrain.i18n.en;
 
 import java.util.*;
-import org.luwrain.core.NullCheck;
+
+import org.luwrain.core.*;
 
 class DateUtils
 {
@@ -37,13 +38,13 @@ class DateUtils
 	final long hours = hoursTotal - (daysTotal * 24);
 	final long weeksTotal = daysTotal / 7;
 	final long days = daysTotal - (weeksTotal * 7);
-	String res = "" + seconds + "сек.";
+	String res = "" + seconds + "sec";
 	if (minutes > 0)
-	    res = "" + minutes + "мин. " + res;
+	    res = "" + minutes + "min " + res;
 	if (hours > 0)
-	    res = "" + hours + "ч " + res;
+	    res = "" + hours + "h " + res;
 	if (daysTotal > 0)
-	    res = "" + daysTotal + "д. " + res;
+	    res = "" + daysTotal + "d " + res;
 	return res;
     }
 
