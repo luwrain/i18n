@@ -58,7 +58,6 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("fetch", "Доставка почты и новостей", new AppFetch(), ext);
 	save("contacts", "Адресная книга", new AppContacts(), ext);
 	save("wiki", "Википедия", new AppWiki(), ext);
-	save("twitter", "Твиттер", new AppTwitter(), ext);
 	save("calc", "Калькулятор", new AppCalc(), ext);
     }
 
