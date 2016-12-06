@@ -55,7 +55,6 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	save("control-panel", "Панель управления", new AppControl(), ext);
 	save("registry", "Редактор реестра", new AppRegistry(), ext);
 	save("message", "Сообщение", new AppMessage(), ext);
-	save("fetch", "Доставка почты и новостей", new AppFetch(), ext);
 	save("contacts", "Адресная книга", new AppContacts(), ext);
 	save("wiki", "Википедия", new AppWiki(), ext);
 	save("calc", "Калькулятор", new AppCalc(), ext);
