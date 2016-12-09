@@ -53,11 +53,9 @@ public class Extension extends org.luwrain.core.extensions.EmptyExtension
 	ext.addStrings("ru", org.luwrain.desktop.App.STRINGS_NAME, new Desktop());
 
 	save("control-panel", "Панель управления", new AppControl(), ext);
-	save("registry", "Редактор реестра", new AppRegistry(), ext);
 	save("message", "Сообщение", new AppMessage(), ext);
 	save("contacts", "Адресная книга", new AppContacts(), ext);
 	save("wiki", "Википедия", new AppWiki(), ext);
-	save("calc", "Калькулятор", new AppCalc(), ext);
     }
 
     private void save(String name, String command,
