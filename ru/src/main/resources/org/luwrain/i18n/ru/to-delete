@@ -3,7 +3,7 @@
 while read l;do
 L=${l%%=*}
 L="$(echo $L)"
-if grep -q "$l" constants.properties; then
+if grep -q "$L" constants.properties; then
     echo "$l"
     else
 echo "#$l"
