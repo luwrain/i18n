@@ -54,6 +54,6 @@ class Lang extends LangBase
     @Override public String pastTimeBrief(java.util.Date date)
     {
 	NullCheck.notNull(date, "date");
-	return new DateUtils().pastTimeBrief(date);
+	return new DateUtils().pastTimeBrief(date) + " ago";
 	}
 }
