@@ -1,7 +1,7 @@
 /*
-   Copyright 2012-2016 Michael Pozhidaev <michael.pozhidaev@gmail.com>
+   Copyright 2012-2017 Michael Pozhidaev <michael.pozhidaev@gmail.com>
 
-   This file is part of the LUWRAIN.
+   This file is part of LUWRAIN.
 
    LUWRAIN is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -23,38 +23,37 @@ import org.luwrain.i18n.*;
 
 class Lang extends LangBase
 {
-    Lang(Map<String, String> staticStrings,
-	 Map<String, String> chars)
+    Lang(Map<String, String> staticStrings, Map<String, String> chars)
     {
 	super(staticStrings, chars);
     }
 
     @Override public String getNumberStr(int num, String entities)
     {
-	return "fixme";
+	NullCheck.notEmpty(entities, "entities");
+	final StringBuilder b = new StringBuilder();
+	b.append("" + num + " ");
+	switch(entities)
+	{
+	case "items":
+	    b.append(num == 1?"item":"items");
+	    break;
+	case "percents":
+	    b.append(num == 1?"percent":"percents");
+	    break;
+	case "hours":
+	    b.append(num == 1?"hour":"hours");
+	    break;
+	case "minutes":
+	    b.append(num == 1?"minute":"minutes");
+	    break;
+	}
+	return new String(b);
     }
 
-@Override public String pastTimeBrief(java.util.Date date)
+    @Override public String pastTimeBrief(java.util.Date date)
     {
-	return "fixme";
-    }
-
-    static String afterNum(int num,
-			   String afterZero,
-			   String afterOne,
-			   String afterTwo)
-    {
-	if (num < 0)
-	    throw new IllegalArgumentException("num may not be negative");
-	if (num == 0 || num % 10 == 0)
-	    return afterZero;
-	if (num % 100 >= 11 && num % 100 <= 19)
-	    return afterZero;
-	if (num % 10 == 1)
-	    return afterOne;
-	if (num % 10 >= 2 && num % 10 < 4)
-	    return afterTwo;
-	return afterZero;
-    }
-
+	NullCheck.notNull(date, "date");
+	return new DateUtils().pastTimeBrief(date);
+	}
 }

@@ -1,7 +1,7 @@
 /*
-   Copyright 2012-2016 Michael Pozhidaev <michael.pozhidaev@gmail.com>
+   Copyright 2012-2017 Michael Pozhidaev <michael.pozhidaev@gmail.com>
 
-   This file is part of the LUWRAIN.
+   This file is part of LUWRAIN.
 
    LUWRAIN is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -26,6 +26,7 @@ class DateUtils
 
     String passedTimeFull(Date moment)
     {
+	NullCheck.notNull(moment, "moment");
 	final long wasTime = moment.getTime();
 	final long nowTime = now.getTime();
 	final long passed = nowTime - wasTime;
@@ -48,8 +49,9 @@ class DateUtils
 	return res;
     }
 
-    String passedTimeBrief(Date moment)
+    String pastTimeBrief(Date moment)
     {
+	NullCheck.notNull(moment, "moment");
 	final long wasTime = moment.getTime();
 	final long nowTime = now.getTime();
 	final long passed = nowTime - wasTime;
@@ -59,64 +61,62 @@ class DateUtils
 	final long daysTotal = hoursTotal / 24;
 	final long weeksTotal = daysTotal / 7;
 	if (weeksTotal > 0)
-	    return weeksTotal + " " + Lang.afterNum((int)weeksTotal, "недель", "неделя", "недели");
+	    return weeksTotal + " " + (weeksTotal == 1?"week":"weeks");
 	if (daysTotal > 0)
-	    return daysTotal + " " + Lang.afterNum((int)daysTotal, "дней", "день", "дня");
+	    return daysTotal + " " + (daysTotal == 1?"day":"days");
 	if (hoursTotal > 0)
-	    return hoursTotal + " " + Lang.afterNum((int)hoursTotal, "часов", "час", "часа");
+	    return hoursTotal + " " + (hoursTotal == 1?"hour":"hours");
 	if (minutesTotal > 0)
-	    return minutesTotal + " " + Lang.afterNum((int)minutesTotal, "минут", "минута", "минуты");
+	    return minutesTotal + " " + (minutesTotal == 1?"minute":"minutes");
 	if (secondsTotal > 0)
-	    return secondsTotal + " " + Lang.afterNum((int)secondsTotal, "секунд", "секунда", "секунды");
-	return "меньше секунды";
+	    return secondsTotal + " " + (secondsTotal == 1?"second":"seconds");
+	return "less than second";
     }
 
     static String dateTime(Date moment)
     {
-	if (moment == null)
-	    throw new NullPointerException("moment may not be null");
+	NullCheck.notNull(moment, "moment");
 	final StringBuilder b = new StringBuilder();
 	b.append(addZeroes(moment.getHours(), 2) + ":" + addZeroes(moment.getMinutes(), 2));
 	b.append(", ");
-	b.append(moment.getDate() + " " + month(moment.getMonth() + 1) + " " + (moment.getYear() + 1900) + "г.");
-	return b.toString();
+	b.append(date(moment));
+	return new String(b);
     }
 
     static String date(Date moment)
     {
 	NullCheck.notNull(moment, "moment");
-return moment.getDate() + " " + month(moment.getMonth() + 1) + " " + (moment.getYear() + 1900) + "г.";
+	return  month(moment.getMonth() + 1) + " " + moment.getDate() + ", " + (moment.getYear() + 1900) + "г.";
     }
-
 
     static private String month(int m)
     {
 	switch (m)
 	{
 	case 1:
-	    return "января";
+	    return "January";
 	case 2:
-	    return "февраля";
+	    return "February";
 	case 3:
-	    return "марта";
+	    return "March";
 	case 4:
-	    return "апреля";
+	    return "April";
 	case 5:
-	    return "мая";
+	    return "May";
 	case 6:
-	    return "июня";
+	    return "June";
 	case 7:
-	    return "июля";
+	    return "July";
 	case 8:
-	    return "августа";
+	    return "August";
 	case 9:
-	    return "сентября";
+	    return "September";
 	case 10:
-	    return "октября";
+	    return "October";
 	case 11:
-	    return "ноября";
+	    return "November";
 	case 12:
-	    return "декабря";
+	    return "December";
 	default:
 	    return "";
 	}
