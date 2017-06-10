@@ -1,7 +1,7 @@
 /*
-   Copyright 2012-2015 Michael Pozhidaev <michael.pozhidaev@gmail.com>
+   Copyright 2012-2017 Michael Pozhidaev <michael.pozhidaev@gmail.com>
 
-   This file is part of the LUWRAIN.
+   This file is part of LUWRAIN.
 
    LUWRAIN is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -16,136 +16,27 @@
 
 package org.luwrain.i18n.ru;
 
-import java.net.*;
-import java.util.*;
-
 import org.luwrain.core.*;
-import java.io.*;
 import org.luwrain.i18n.*;
 
-public class Extension extends org.luwrain.core.extensions.EmptyExtension
+public class Extension extends I18nExtensionBase
 {
-    static private final String LANG = "ru";
-
-    static private final String COMMAND_PREFIX = "command.";
-    static private final String STATIC_PREFIX = "static.";
-    static private final String STRINGS_PREFIX = "strings.";
-
-    static private final String CONSTANTS_PROPERTIES_RESOURCE = "org/luwrain/i18n/ru/constants.properties";
-
-    private final Map<String, String> staticStrings = new HashMap<String, String>();
+    static private final String LANG_NAME = "ru";
+    static private final String RESOURCE_PATH = "org/luwrain/i18n/ru/constants.properties";
 
     @Override public void i18nExtension(Luwrain luwrain, I18nExtension ext)
     {
+	NullCheck.notNull(luwrain, "luwrain");
+	NullCheck.notNull(ext, "ext");
 	try {
-	    loadProperties(CONSTANTS_PROPERTIES_RESOURCE, ext);
-	}
-	catch(IOException e)
-	{
-	    e.printStackTrace();
-	}
-
-	ext.addLang("ru", new Lang());
-
-
-	//	ext.addStrings("ru", "main-menu", new MainMenu());
-	ext.addStrings("ru", "luwrain.crash", new AppCrash());
-
-	save("control-panel", "Панель управления", new AppControl(), ext);
-	save("message", "Сообщение", new AppMessage(), ext);
-	save("contacts", "Адресная книга", new AppContacts(), ext);
-	save("wiki", "Википедия", new AppWiki(), ext);
-    }
-
-    private void save(String name, String command,
-		 Object strings, I18nExtension ext)
-    {
- 	ext.addCommandTitle("ru", name, command);
-	ext.addStrings("ru", "luwrain." + name, strings);
-    }
-
-    private boolean saveProxy(String name, Class stringsClass, I18nExtension ext)
-    {
-	final Object strings;
-	try {
-	    strings = PropertiesProxy.create(ClassLoader.getSystemResource(CONSTANTS_PROPERTIES_RESOURCE), name + ".", stringsClass);
+	    loadProperties(RESOURCE_PATH, LANG_NAME, ext);
 	}
 	catch(java.io.IOException e)
 	{
-	    e.printStackTrace();
-	    return false;
+	    Log.error(LANG_NAME, "unable to load properties from " + RESOURCE_PATH + ":" + e.getClass().getName() + ":" + e.getMessage());
+	    return;
 	}
-	ext.addStrings("ru", "luwrain." + name, strings);
-	return true;
-	}
-
-    private boolean addProxy(String name, String className, I18nExtension ext)
-    {
-	NullCheck.notEmpty(name, "name");
-	NullCheck.notEmpty(className, "className");
-	NullCheck.notNull(ext, "ext");
-	final Class cl;
-	try {
-	    cl = Class.forName(className);
-	}
-	catch (ClassNotFoundException e)
-	{
-	    return false;
-	}
-	return saveProxy(name, cl, ext);
-    }
-
-    private void loadProperties(String name, I18nExtension ext) throws IOException
-    {
-	NullCheck.notEmpty(name, "name");
-	NullCheck.notNull(ext, "ext");
-	final Properties props = new Properties();
-	final URL url = ClassLoader.getSystemResource(name);
-	props.load(new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8")));
-	final Enumeration e = props.propertyNames();
-	while(e.hasMoreElements())
-	{
-	    final String k = (String)e.nextElement();
-	    final String v = props.getProperty(k);
-	    if (v == null)
-	    {
-		Log.warning(LANG, "key \'" + k + "\' in resource file " + name + " doesn\'t have value");
-		continue;
-	    }
-	    if (k.trim().startsWith(COMMAND_PREFIX))
-	    {
-		final String c = k.trim().substring(COMMAND_PREFIX.length());
-	    if (c.trim().isEmpty())
-	    {
-		Log.warning(LANG, "illegal key \'" + k + "\' in resource file " + name);
-		continue;
-	    }
-	    ext.addCommandTitle(LANG, c.trim(), v.trim());
-	continue;
-	    }
-	    if (k.trim().startsWith(STATIC_PREFIX))
-	    {
-		final String c = k.trim().substring(STATIC_PREFIX.length());
-	    if (c.trim().isEmpty())
-	    {
-		Log.warning(LANG, "illegal key \'" + k + "\' in resource file " + name);
-		continue;
-	    }
-	    staticStrings.put(c.trim(), v.trim());
-	continue;
-	    }
-	    if (k.trim().startsWith(STRINGS_PREFIX))
-	    {
-		final String c = k.trim().substring(STRINGS_PREFIX.length());
-	    if (c.trim().isEmpty())
-	    {
-		Log.warning(LANG, "illegal key \'" + k + "\' in resource file " + name);
-		continue;
-	    }
-    if (!addProxy(c.trim(), v.trim(), ext))
-	Log.warning(LANG, "unable to create proxy strings object \'" + c + "\' for interface " + v.trim());
-	continue;
-	    }
-	}
+	ext.addLang(LANG_NAME, new Lang());
+	ext.addStrings("ru", "luwrain.crash", new AppCrash());//FIXME:
     }
 }
