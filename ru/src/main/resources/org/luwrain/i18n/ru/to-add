@@ -1,9 +1,0 @@
-#!/bin/bash -e
-
-while read l;do
-L=${l%%=*}
-L="$(echo $L)"
-if ! grep -q "$L" /tmp/en; then
-echo "#$l"
-fi
-done  < constants.properties
