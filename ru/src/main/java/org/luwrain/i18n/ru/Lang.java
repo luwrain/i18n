@@ -18,9 +18,10 @@ package org.luwrain.i18n.ru;
 
 import org.luwrain.core.*;
 
-class Lang implements org.luwrain.core.Lang
+final class Lang implements org.luwrain.core.Lang
 {
     private final ResourceConstants constants = new ResourceConstants();
+    private final SpokenText spokenText = new SpokenText();
 
     @Override public String getStaticStr(String id)
     {
@@ -129,6 +130,13 @@ return     "" + count + " " + afterNum(count, "минут", "минута", "м�
 	default:
 	    return "#Неизвестный тип сущностей \'" + entities + "\'#";
 	}
+    }
+
+    @Override public String getSpokenText(String text, Luwrain.SpokenTextType type)
+    {
+	NullCheck.notNull(text, "text");
+	NullCheck.notNull(type, "type");
+	return spokenText.process(text, type);
     }
 
     static String afterNum(int num,
