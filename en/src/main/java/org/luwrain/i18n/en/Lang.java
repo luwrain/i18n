@@ -56,4 +56,10 @@ class Lang extends LangBase
 	NullCheck.notNull(date, "date");
 	return new DateUtils().pastTimeBrief(date) + " ago";
 	}
+
+    @Override public String getSpokenText(String text, Luwrain.SpokenTextType type)
+    {
+	//FIXME:
+	return text;
+    }
 }
