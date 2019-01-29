@@ -1,5 +1,5 @@
 /*
-   Copyright 2012-2018 Michael Pozhidaev <michael.pozhidaev@gmail.com>
+   Copyright 2012-2019 Michael Pozhidaev <michael.pozhidaev@gmail.com>
 
    This file is part of LUWRAIN.
 
@@ -36,7 +36,7 @@ public class Extension extends I18nExtensionBase
 	    Log.error(LANG_NAME, "unable to load properties from " + RESOURCE_PATH + ":" + e.getClass().getName() + ":" + e.getMessage());
 	    return;
 	}
-	ext.addLang(LANG_NAME, new Lang());
+	ext.addLang(LANG_NAME, new Lang(luwrain));
 	ext.addStrings("ru", "luwrain.crash", new AppCrash());//FIXME:
     }
 }

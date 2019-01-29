@@ -1,5 +1,5 @@
 /*
-   Copyright 2012-2018 Michael Pozhidaev <michael.pozhidaev@gmail.com>
+   Copyright 2012-2019 Michael Pozhidaev <michael.pozhidaev@gmail.com>
 
    This file is part of LUWRAIN.
 
@@ -21,39 +21,32 @@ import org.luwrain.core.Luwrain.SpokenTextType;
 
 final class SpokenText
 {
+    static private final String HOOK_NAME_NATURAL_PRE = "luwrain.i18n.ru.speech.natural.pre";
+        static private final String HOOK_NAME_PROGRAMMING_PRE = "luwrain.i18n.ru.speech.programming.pre";
+
+    private final Luwrain luwrain;
+
+    SpokenText(Luwrain luwrain)
+    {
+	NullCheck.notNull(luwrain, "luwrain");
+	this.luwrain = luwrain;
+    }
+
     String process(String text, SpokenTextType type)
     {
 	NullCheck.notNull(text, "text");
 	NullCheck.notNull(type, "type");
+	final SpokenTextHook hook = new SpokenTextHook(text);
 	switch(type)
 	{
 	case NATURAL:
-	    return processNatural(text);
+	    luwrain.xRunHooks(HOOK_NAME_NATURAL_PRE, hook);
+	    return hook.getText();
+	case PROGRAMMING:
+	    luwrain.xRunHooks(HOOK_NAME_PROGRAMMING_PRE, hook);
+	    return hook.getText();
 	default:
 	    return text;
 	}
-    }
-
-    private String processNatural(String text)
-    {
-	NullCheck.notNull(text, "text");
-	final StringBuilder b = new StringBuilder();
-	for(int i = 0;i < text.length();++i)
-	{
-	    final char c = text.charAt(i);
-	    switch(c)
-	    {
-	    case '(':
-		b.append(" , в скобках, ");
-		break;
-	    case ')':
-		b.append(" , закрылась скобка, ");
-
-		break;
-	    default:
-		b.append("" + c);
-	    }
-	}
-	return new String(b);
     }
 }

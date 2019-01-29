@@ -16,24 +16,32 @@
 
 package org.luwrain.i18n.ru;
 
-class NumberUtil
+import org.luwrain.core.*;
+
+final class SpokenTextHook implements Luwrain.HookRunner
 {
-    public static String chooseNumberDependentForm(int num,
-						   String form1,
-						   String form2,
-String form3)
+    private String text = null;
+
+    SpokenTextHook(String text)
     {
-	int k = num;
-	if (k < 0)
-	    k *= -1;
-	k = k % 100;
-	if (k >= 10 && k <= 20)
-	    return form3;
-	int kk = k % 10;
-	if (kk == 1)
-	    return form1;
-	if (kk >= 2 && kk <= 4)
-	    return form2;
-	return form3;
+	NullCheck.notNull(text, "text");
+	this.text = text;
+    }
+
+    @Override public Luwrain.HookResult runHook(Luwrain.Hook hook)
+    {
+	NullCheck.notNull(hook, "hook");
+	final Object res = hook.run(new Object[]{text});
+	if (res == null)
+	    return Luwrain.HookResult.CONTINUE;
+	final String value = res.toString();
+	if (value != null)
+	    this.text = value;
+	return Luwrain.HookResult.CONTINUE;
+    }
+
+    String getText()
+    {
+	return text;
     }
 }

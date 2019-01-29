@@ -1,5 +1,5 @@
 /*
-   Copyright 2012-2018 Michael Pozhidaev <michael.pozhidaev@gmail.com>
+   Copyright 2012-2019 Michael Pozhidaev <michael.pozhidaev@gmail.com>
 
    This file is part of LUWRAIN.
 
@@ -21,7 +21,13 @@ import org.luwrain.core.*;
 final class Lang implements org.luwrain.core.Lang
 {
     private final ResourceConstants constants = new ResourceConstants();
-    private final SpokenText spokenText = new SpokenText();
+    private final SpokenText spokenText;
+
+    Lang(Luwrain luwrain)
+    {
+	NullCheck.notNull(luwrain, "luwrain");
+	this.spokenText = new SpokenText(luwrain);
+    }
 
     @Override public String getStaticStr(String id)
     {
