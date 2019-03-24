@@ -14,7 +14,7 @@
    General Public License for more details.
 */
 
-fpackage org.luwrain.i18n.fr;
+package org.luwrain.i18n.fr;
 
 import java.util.*;
 
