@@ -3,7 +3,7 @@
 
 
 You can find here all language-dependent code used in LUWRAIN.
-It is mostly responsible for the support of various national languages and standards.
+It is responsible for the support of various national languages and standards.
 A vast majority of prepared translation saved in a set of properties files with static strings.
 You can find such files for the following languages:
 
