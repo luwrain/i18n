@@ -29,7 +29,7 @@ public final class Extension extends I18nExtensionBase
 	NullCheck.notNull(luwrain, "luwrain");
 	NullCheck.notNull(ext, "ext");
 	try {
-	    loadProperties(RESOURCE_PATH, LANG_NAME, ext);
+	    loadProperties(LANG_NAME, this.getClass().getClassLoader(), RESOURCE_PATH, ext);
 	}
 	catch(java.io.IOException e)
 	{
