@@ -24,12 +24,17 @@ public final class Extension extends I18nExtensionBase
     static private final String LANG_NAME = "ro";
     static private final String RESOURCE_PATH = "org/luwrain/i18n/ro/constants.properties";
 
+    public Extension()
+    {
+	super(LANG_NAME);
+    }
+
     @Override public void i18nExtension(Luwrain luwrain, I18nExtension ext)
     {
 	NullCheck.notNull(luwrain, "luwrain");
 	NullCheck.notNull(ext, "ext");
 	try {
-	    loadProperties(LANG_NAME, this.getClass().getClassLoader(), RESOURCE_PATH, ext);
+	    loadProperties(this.getClass().getClassLoader(), RESOURCE_PATH, ext);
 	}
 	catch(java.io.IOException e)
 	{
