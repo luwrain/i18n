@@ -21,7 +21,7 @@ import java.util.*;
 import org.luwrain.core.*;
 import org.luwrain.i18n.*;
 
-class Lang extends LangBase
+final class Lang extends LangBase
 {
     Lang(Map<String, String> staticStrings, Map<String, String> chars)
     {
