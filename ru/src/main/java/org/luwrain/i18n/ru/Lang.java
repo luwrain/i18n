@@ -16,108 +16,25 @@
 
 package org.luwrain.i18n.ru;
 
-import org.luwrain.core.*;
+import java.util.*;
 
-final class Lang implements org.luwrain.core.Lang
+import org.luwrain.core.*;
+import org.luwrain.i18n.*;
+
+final class Lang extends LangBase
 {
-    private final ResourceConstants constants = new ResourceConstants();
     private final SpokenText spokenText;
 
-    Lang(Luwrain luwrain)
+    Lang(Luwrain luwrain, Map<String, String> staticStrings, Map<String, String> chars)
     {
+	super(staticStrings, chars);
 	NullCheck.notNull(luwrain, "luwrain");
 	this.spokenText = new SpokenText(luwrain);
-    }
-
-    @Override public String getStaticStr(String id)
-    {
-	NullCheck.notNull(id, "id");
-	final String value = constants.value("static." + id); 
-	return value != null?value.trim():"#Неизвестный идентификатор строки: \'" + id + "\'#";
     }
 
     @Override public String pastTimeBrief(java.util.Date date)
     {
 	return new DateUtils().passedTimeBrief(date) + " назад";
-    }
-
-    @Override public String hasSpecialNameOfChar(char ch)
-    {
-	if (Character.isDigit(ch) || Character.isLetter(ch))
-	    return null;
-	switch(ch)
-	{
-	case '\r':
-return "Символ переноса строки в стиле Windows";
-	case '—':
-	    return "длинное тире";
-	case '~':
-	    return "тильда";
-	case '`':
-	    return "обратный апостроф";
-	case '!':
-	    return "восклицательный знак";
-	case '@':
-	    return "собачка";
-	case '#':
-	    return "диез";
-	case '$':
-	    return "доллар";
-	case '%':
-	    return "процент";
-	case '^':
-	    return "знак степени";
-	case '&':
-	    	    return "амперсант";
-	case '*':
-	    return "звезда";
-	case '(':
-	    return "левая круглая скобка";
-	case ')':
-	    return "правая круглая скобка";
-	case '_':
-	    return "знак подчёркивания";
-	case '-':
-	    return "дефис";
-	case '+':
-	    return "плюс";
-	case '=':
-	    return "равно";
-	case '[':
-	    return "левая квадратная скобка";
-	case ']':
-	    return "правая квадратная скобка";
-	case '{':
-	    return "левая фигурная скобка";
-	case '}':
-	    return "правая фигурная скобка";
-	case ':':
-    return "двоеточие";
-	case ';':
-	    return "точка с запятой";
-	case '\\':
-	    return "обратный слэш";
-	case '|':
-	    return "вертикальная черта";
-	case '\'':
-	    return "апостроф";
-	case '\"':
-	    return "двойная кавычка";
-	case '/':
-	    return "слэш";
-	case '?':
-	    return "вопросительный знак";
-	case '<':
-	    return "меньше";
-	case '>':
-	    return "больше";
-	case ',':
-	    return "запятая";
-	case '.':
-	    return "точка";
-	default:
-	    return Character.getName(ch);
-	}
     }
 
     @Override public String getNumberStr(int count, String entities)

@@ -19,7 +19,7 @@ package org.luwrain.i18n.ru;
 import org.luwrain.core.*;
 import org.luwrain.i18n.*;
 
-public class Extension extends I18nExtensionBase
+public final class Extension extends I18nExtensionBase
 {
     static private final String LANG_NAME = "ru";
     static private final String RESOURCE_PATH = "org/luwrain/i18n/ru/constants.properties";
@@ -41,7 +41,7 @@ public class Extension extends I18nExtensionBase
 	    Log.error(LANG_NAME, "unable to load properties from " + RESOURCE_PATH + ":" + e.getClass().getName() + ":" + e.getMessage());
 	    return;
 	}
-	ext.addLang(LANG_NAME, new Lang(luwrain));
+	ext.addLang(LANG_NAME, new Lang(luwrain, staticStrings, chars));
 	ext.addStrings("ru", "luwrain.crash", new AppCrash());//FIXME:
     }
 }
