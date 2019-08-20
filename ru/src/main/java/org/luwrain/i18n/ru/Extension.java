@@ -22,6 +22,7 @@ import org.luwrain.i18n.*;
 public final class Extension extends I18nExtensionBase
 {
     static private final String LANG_NAME = "ru";
+    static final String LOG_COMPONENT = LANG_NAME;
     static private final String RESOURCE_PATH = "org/luwrain/i18n/ru/constants.properties";
 
     public Extension()
