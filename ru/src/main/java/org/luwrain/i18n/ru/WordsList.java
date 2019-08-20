@@ -41,10 +41,16 @@ public class WordsList
     RuWord[] findWord(String word)
     {
 	NullCheck.notEmpty(word, "word");
-	return null;
+	final List<RuWord> res = new LinkedList();
+	{
+	    final RuWord w = findNoun(word);
+	    if (w != null)
+		res.add(w);
+	}
+	return res.toArray(new RuWord[res.size()]);
     }
 
-	private RuWord findNoun(String word)
+    private RuWord findNoun(String word)
     {
 	NullCheck.notEmpty(word, "word");
 	if (!nouns.containsKey(word))
@@ -73,35 +79,34 @@ public class WordsList
 	    final Cases c = noun.singular;
 	    if (valid(c.nom))
 		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.NOM), c.nom));
-
-	    	    if (valid(c.gen))
+	    if (valid(c.gen))
 		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.GEN), c.gen));
-
-		    	    	    if (valid(c.dat))
+	    if (valid(c.dat))
 		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.DAT), c.dat));
-
-				    		    	    	    if (valid(c.acc))
+	    if (valid(c.acc))
 		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.ACC), c.acc));
-
-								    				    		    	    	    if (valid(c.inst))
+	    if (valid(c.inst))
 		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.INST), c.inst));
-
-																    								    				    		    	    	    if (valid(c.prae))
+	    if (valid(c.prae))
 		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.PRAE), c.prae));
-
-
-
-
-
-		    
 	}
-
-		if (noun.plural != null)
+	if (noun.plural != null)
 	{
 	    final Cases c = noun.plural;
+	    if (valid(c.nom))
+		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.NOM), c.nom));
+	    if (valid(c.gen))
+		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.GEN), c.gen));
+	    if (valid(c.dat))
+		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.DAT), c.dat));
+	    if (valid(c.acc))
+		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.ACC), c.acc));
+	    if (valid(c.inst))
+		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.INST), c.inst));
+	    if (valid(c.prae))
+		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.PRAE), c.prae));
 	}
-
-		return null;
+	return new RuWord(word, forms.toArray(new RuWord.Form[forms.size()]));
     }
 
         void loadFromResource()

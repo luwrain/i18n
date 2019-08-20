@@ -64,6 +64,12 @@ return     "" + count + " " + afterNum(count, "минут", "минута", "м�
 	return spokenText.process(text, type);
     }
 
+    @Override public Word[] getWord(String word)
+    {
+	NullCheck.notEmpty(word, "word");
+	return wordsList.findWord(word);
+    }
+
     static String afterNum(int num,
 			   String afterZero,
 			   String afterOne,
