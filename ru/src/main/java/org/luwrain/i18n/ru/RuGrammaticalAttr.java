@@ -16,9 +16,10 @@
 
 package org.luwrain.i18n.ru;
 
+import org.luwrain.core.*;
 import org.luwrain.i18n.*;
 
-public class RuGrammaticalAttr implements GrammaticalAttr
+public final class RuGrammaticalAttr implements GrammaticalAttr
 {
     public enum Gender {
 	MASCULINE,
@@ -39,4 +40,33 @@ NEUTER
 	INST,
 	PRAE
     };
+
+    private final Gender gender;
+    private final Number number;
+    private final Case gcase;
+
+    public RuGrammaticalAttr(Gender gender, Number number, Case gcase)
+    {
+	NullCheck.notNull(gender, "gender");
+	NullCheck.notNull(number, "number");
+	NullCheck.notNull(gcase, "gcase");
+	this.gender = gender;
+	this.number = number;
+	this.gcase = gcase;
+    }
+
+    public Gender getGender()
+    {
+	return gender;
+    }
+
+    public Number getNumber()
+    {
+	return number;
+    }
+
+    public Case getCase()
+    {
+	return gcase;
+    }
 }
