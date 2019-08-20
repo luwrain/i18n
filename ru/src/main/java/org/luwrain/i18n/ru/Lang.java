@@ -24,12 +24,14 @@ import org.luwrain.i18n.*;
 final class Lang extends LangBase
 {
     private final SpokenText spokenText;
+    private final WordsList wordsList = new WordsList();
 
     Lang(Luwrain luwrain, Map<String, String> staticStrings, Map<String, String> chars)
     {
 	super(staticStrings, chars);
 	NullCheck.notNull(luwrain, "luwrain");
 	this.spokenText = new SpokenText(luwrain);
+	this.wordsList.loadFromResource();
     }
 
     @Override public String pastTimeBrief(java.util.Date date)
