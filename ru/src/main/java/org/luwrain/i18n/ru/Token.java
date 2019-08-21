@@ -17,13 +17,14 @@
 package org.luwrain.i18n.ru;
 
 import org.luwrain.core.*;
+import org.luwrain.script.*;
 
-public final class Token
+public final class Token extends EmptyHookObject
 {
     public enum Type {NUM, LATIN, CYRIL, SPACE, PUNC};
 
-    final Type type;
-    final String text;
+    private final Type type;
+    private final String text;
 
     public Token(Type type, String text)
     {
@@ -31,5 +32,34 @@ public final class Token
 	NullCheck.notEmpty(text, "text");
 	this.type = type;
 	this.text = text;
+    }
+
+    public Type getType()
+    {
+	return type;
+    }
+
+    public String getText(String text)
+    {
+	return text;
+    }
+
+    @Override public String toString()
+    {
+	return text;
+    }
+
+    @Override public Object getMember(String name)
+    {
+	NullCheck.notNull(name, "name");
+	switch(name)
+	{
+	case "type":
+	    return type.toString().toLowerCase();
+	case "text":
+	    return text;
+	default:
+	    return super.getMember(name);
+	}
     }
 }

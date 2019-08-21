@@ -34,20 +34,33 @@ public final class RuWord implements Word
 	}
     }
 
+    private final POS pos;
     private final String word;
     private final Form[] forms;
 
-    public RuWord(String word, Form[] forms)
+    public RuWord(POS pos, String word, Form[] forms)
     {
+	NullCheck.notNull(pos, "pos");
 	NullCheck.notEmpty(word, "word");
 	NullCheck.notNullItems(forms, "forms");
+	this .pos = pos;
 	this.word = word;
 	this.forms = forms.clone();
     }
 
+    public RuWord(POS pos, String word)
+    {
+	this(pos, word, new Form[0]);
+    }
+
     public RuWord(String word)
     {
-	this(word, new Form[0]);
+	this(POS.UNKNOWN, word);
+    }
+
+    @Override public POS getPos()
+    {
+	return pos;
     }
 
     public String getWord()

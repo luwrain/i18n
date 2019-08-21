@@ -106,7 +106,7 @@ public class WordsList
 	    if (valid(c.prae))
 		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.PRAE), c.prae));
 	}
-	return new RuWord(word, forms.toArray(new RuWord.Form[forms.size()]));
+	return new RuWord(POS.NOUN, word, forms.toArray(new RuWord.Form[forms.size()]));
     }
 
         void loadFromResource()
