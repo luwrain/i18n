@@ -20,7 +20,7 @@ import java.util.*;
 
 public abstract class AbstractTokenizer
 {
-    final List<Token> output = new LinkedList();
+    protected final List<Token> output = new LinkedList();
 
     abstract char getCh();
     abstract public boolean hasCh();
@@ -118,5 +118,10 @@ public abstract class AbstractTokenizer
     private void onPuncToken(char ch)
     {
 	output.add(new Token(Token.Type.PUNC, new Character(ch).toString()));
+    }
+
+    public Token[] getOutput()
+    {
+	return output.toArray(new Token[output.size()]);
     }
 }

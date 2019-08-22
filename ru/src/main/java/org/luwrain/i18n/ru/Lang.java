@@ -23,14 +23,14 @@ import org.luwrain.i18n.*;
 
 final class Lang extends LangBase
 {
-    private final SpokenText spokenText;
+    private final SpeakableText speakableText;
     private final WordsList wordsList = new WordsList();
 
     Lang(Luwrain luwrain, Map<String, String> staticStrings, Map<String, String> chars)
     {
 	super(staticStrings, chars);
 	NullCheck.notNull(luwrain, "luwrain");
-	this.spokenText = new SpokenText(luwrain);
+	this.speakableText = new SpeakableText(luwrain);
 	this.wordsList.loadFromResource();
     }
 
@@ -57,11 +57,11 @@ return     "" + count + " " + afterNum(count, "минут", "минута", "м�
 	}
     }
 
-    @Override public String getSpokenText(String text, Luwrain.SpokenTextType type)
+    @Override public String getSpeakableText(String text, Luwrain.SpeakableTextType type)
     {
 	NullCheck.notNull(text, "text");
 	NullCheck.notNull(type, "type");
-	return spokenText.process(text, type);
+	return speakableText.process(text, type);
     }
 
     @Override public Word[] getWord(String word)

@@ -57,7 +57,7 @@ class Lang extends LangBase
 	return new DateUtils().pastTimeBrief(date) + " ago";
 	}
 
-    @Override public String getSpokenText(String text, Luwrain.SpokenTextType type)
+    @Override public String getSpeakableText(String text, Luwrain.SpeakableTextType type)
     {
 	//FIXME:
 	return text;
