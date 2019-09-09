@@ -44,6 +44,7 @@ final class SpeakableText
 	case NATURAL:
 	    return processNatural(text);
 	case PROGRAMMING:
+	    	    return processProgramming(text);
 	default:
 	    return text;
 	}
@@ -61,4 +62,13 @@ final class SpeakableText
 	    t = tokensRes.toString();
 	return t;
     }
+
+        private String processProgramming(String text)
+    {
+	NullCheck.notNull(text, "text");
+	final SpokenTextHook hook = new SpokenTextHook(text);
+	luwrain.xRunHooks(HOOK_PROGRAMMING_PRE, hook);
+	return hook.getText();
+	    }
+
 }
