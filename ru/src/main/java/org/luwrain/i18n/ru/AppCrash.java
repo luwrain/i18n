@@ -44,4 +44,9 @@ class AppCrash implements org.luwrain.app.crash.Strings
     {
 	return "Содержимое стека:";
     }
+
+    @Override public String area(String name)
+    {
+	return name;
+	}
 }
