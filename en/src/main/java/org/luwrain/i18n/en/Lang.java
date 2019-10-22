@@ -62,4 +62,14 @@ final class Lang extends LangBase
 	//FIXME:
 	return text;
     }
+
+    @Override public String hasSpecialNameOfChar(char ch)
+    {
+	final String value = super.hasSpecialNameOfChar(ch);
+	if (value == null)
+	    return null;
+	if (value.endsWith("_sign"))
+	    return value.substring(0, value.length() - 5);
+	return value;
+    }
 }
