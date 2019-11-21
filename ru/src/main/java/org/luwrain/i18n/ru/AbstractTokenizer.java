@@ -35,7 +35,7 @@ public abstract class AbstractTokenizer
 		onNumToken(ch); else
 		if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
 		    onLatinToken(ch); else
-		    if ((ch >= 'а' && ch <= 'я') || (ch >= 'А' && ch <= 'Я'))
+		    if ((ch >= 'а' && ch <= 'я') || (ch >= 'А' && ch <= 'Я') || ch == 'ё' || ch == 'Ё')
 			onCyrilToken(ch); else
 			if (Character.isSpace(ch))
 			    onSpaceToken(ch); else
@@ -86,7 +86,7 @@ public abstract class AbstractTokenizer
 	while(hasCh())
 	{
 	    final char nextCh = getCh();
-	    if ((nextCh >= 'а' && nextCh <= 'я') || (nextCh >= 'А' && nextCh <= 'Я'))
+	    if ((nextCh >= 'а' && nextCh <= 'я') || (nextCh >= 'А' && nextCh <= 'Я') || nextCh == 'ё' || nextCh == 'Ё')
 	    {
 		b.append(nextCh);
 		continue;
