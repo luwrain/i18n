@@ -28,7 +28,7 @@ final class Lang extends LangBase
 
     Lang(Luwrain luwrain, Map<String, String> staticStrings, Map<String, String> chars)
     {
-	super(staticStrings, chars);
+	super("ru", staticStrings, chars);
 	NullCheck.notNull(luwrain, "luwrain");
 	this.speakableText = new SpeakableText(luwrain);
 	this.wordsList.loadFromResource();

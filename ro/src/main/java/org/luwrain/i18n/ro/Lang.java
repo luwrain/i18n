@@ -25,7 +25,7 @@ final class Lang extends LangBase
 {
     Lang(Map<String, String> staticStrings, Map<String, String> chars)
     {
-	super(staticStrings, chars);
+	super("ro", staticStrings, chars);
     }
 
     @Override public String getNumberStr(int num, String entities)
