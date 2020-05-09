@@ -43,6 +43,5 @@ public final class Extension extends I18nExtensionBase
 	    return;
 	}
 	ext.addLang(LANG_NAME, new Lang(luwrain, staticStrings, chars));
-	ext.addStrings("ru", "luwrain.crash", new AppCrash());//FIXME:
     }
 }
