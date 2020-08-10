@@ -1,5 +1,5 @@
 /*
-   Copyright 2012-2019 Michael Pozhidaev <msp@luwrain.org>
+   Copyright 2012-2020 Michael Pozhidaev <msp@luwrain.org>
 
    This file is part of LUWRAIN.
 
@@ -19,6 +19,7 @@ package org.luwrain.i18n.ru;
 import org.luwrain.core.*;
 import org.luwrain.core.Luwrain.SpeakableTextType;
 import org.luwrain.script.*;
+import org.luwrain.nlp.ru.*;
 import org.luwrain.script.hooks.*;
 
 final class SpeakableText

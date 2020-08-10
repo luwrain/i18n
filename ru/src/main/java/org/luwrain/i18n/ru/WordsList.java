@@ -24,10 +24,11 @@ import com.google.gson.annotations.*;
 
 import org.luwrain.core.*;
 import org.luwrain.i18n.*;
+import org.luwrain.nlp.ru.*;
 
-import org.luwrain.i18n.ru.RuGrammaticalAttr.Gender;
-import org.luwrain.i18n.ru.RuGrammaticalAttr.Number;
-import org.luwrain.i18n.ru.RuGrammaticalAttr.Case;
+import org.luwrain.nlp.ru.GramAttr.Gender;
+import org.luwrain.nlp.ru.GramAttr.Number;
+import org.luwrain.nlp.ru.GramAttr.Case;
 
 public class WordsList
 {
@@ -78,33 +79,33 @@ public class WordsList
 	{
 	    final Cases c = noun.singular;
 	    if (valid(c.nom))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.NOM), c.nom));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.SINGULAR, Case.NOM), c.nom));
 	    if (valid(c.gen))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.GEN), c.gen));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.SINGULAR, Case.GEN), c.gen));
 	    if (valid(c.dat))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.DAT), c.dat));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.SINGULAR, Case.DAT), c.dat));
 	    if (valid(c.acc))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.ACC), c.acc));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.SINGULAR, Case.ACC), c.acc));
 	    if (valid(c.inst))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.INST), c.inst));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.SINGULAR, Case.INST), c.inst));
 	    if (valid(c.prae))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.SINGULAR, Case.PRAE), c.prae));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.SINGULAR, Case.PRAE), c.prae));
 	}
 	if (noun.plural != null)
 	{
 	    final Cases c = noun.plural;
 	    if (valid(c.nom))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.NOM), c.nom));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.PLURAL, Case.NOM), c.nom));
 	    if (valid(c.gen))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.GEN), c.gen));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.PLURAL, Case.GEN), c.gen));
 	    if (valid(c.dat))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.DAT), c.dat));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.PLURAL, Case.DAT), c.dat));
 	    if (valid(c.acc))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.ACC), c.acc));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.PLURAL, Case.ACC), c.acc));
 	    if (valid(c.inst))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.INST), c.inst));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.PLURAL, Case.INST), c.inst));
 	    if (valid(c.prae))
-		forms.add(new RuWord.Form(new RuGrammaticalAttr(gender, Number.PLURAL, Case.PRAE), c.prae));
+		forms.add(new RuWord.Form(new GramAttr(gender, Number.PLURAL, Case.PRAE), c.prae));
 	}
 	return new RuWord(POS.NOUN, word, forms.toArray(new RuWord.Form[forms.size()]));
     }
