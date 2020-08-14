@@ -34,8 +34,9 @@ public final class Extension extends I18nExtensionBase
     {
 	NullCheck.notNull(luwrain, "luwrain");
 	NullCheck.notNull(ext, "ext");
+	init(getClass().getClassLoader(), luwrain);
 	try {
-	    loadProperties(this.getClass().getClassLoader(), RESOURCE_PATH, ext);
+	    loadProperties(RESOURCE_PATH, ext);
 	}
 	catch(java.io.IOException e)
 	{

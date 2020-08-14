@@ -20,11 +20,12 @@ import java.util.*;
 
 import org.luwrain.core.*;
 import org.luwrain.i18n.*;
+import org.luwrain.nlp.*;
 
 final class Lang extends LangBase
 {
     private final SpeakableText speakableText;
-    private final WordsList wordsList = new WordsList();
+    private final WordList wordsList = new WordList();
 
     Lang(Luwrain luwrain, Map<String, String> staticStrings, Map<String, String> chars)
     {

@@ -16,60 +16,49 @@
 
 package org.luwrain.i18n.ru;
 
+import java.util.*;
+
+import com.google.gson.annotations.*;
+
 import org.luwrain.core.*;
-import org.luwrain.i18n.*;
+import org.luwrain.nlp.*;
 
 public final class RuWord implements Word
 {
-    static public final class Form
-    {
-	private final GrammaticalAttr gramAttr;
-	private final String word;
-	public Form(GrammaticalAttr gramAttr, String word)
-	{
-	    NullCheck.notNull(gramAttr, "gramAttr");
-	    NullCheck.notEmpty(word, "word");
-	    this.gramAttr = gramAttr;
-	    this.word = word;
-	}
-    }
+    @SerializedName("pos")
+    private POS pos = null;
 
-    private final POS pos;
-    private final String word;
-    private final Form[] forms;
+    @SerializedName("lemma")
+    private String lemma = null;
 
-    public RuWord(POS pos, String word, Form[] forms)
-    {
-	NullCheck.notNull(pos, "pos");
-	NullCheck.notEmpty(word, "word");
-	NullCheck.notNullItems(forms, "forms");
-	this .pos = pos;
-	this.word = word;
-	this.forms = forms.clone();
-    }
+    @SerializedName("base")
+    private String gramBase = null;
 
-    public RuWord(POS pos, String word)
-    {
-	this(pos, word, new Form[0]);
-    }
-
-    public RuWord(String word)
-    {
-	this(POS.UNKNOWN, word);
-    }
+    @SerializedName("forms")
+    private List<Form> forms = null;
 
     @Override public POS getPos()
     {
 	return pos;
     }
 
-    public String getWord()
+    public String getLemma()
     {
-	return word;
+	return this.lemma != null?this.lemma:"";
     }
 
     public Form[] getForms()
     {
-	return forms.clone();
+	if (forms == null)
+	    return new Form[0];
+	return forms.toArray(new Form[forms.size()]);
+    }
+
+        static public final class Form
+    {
+	@SerializedName("gram")
+	private String gramAttrStr = null;
+	@SerializedName("word")
+	private String word = null;
     }
 }
