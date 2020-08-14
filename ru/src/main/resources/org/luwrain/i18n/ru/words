@@ -1,3 +1,6 @@
 [
-{lemma: "ВЕК", pos="noun", forms: []}
+{lemma: "ВЕК", pos="NOUN", gram="MASC", forms: [
+{gram: "SG,NOM", word: "ВЕК"}
+
+]}
 ]

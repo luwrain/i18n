@@ -19,12 +19,13 @@ package org.luwrain.i18n.ru;
 import org.junit.*;
 
 import org.luwrain.core.*;
+import org.luwrain.nlp.*;
+import org.luwrain.nlp.ru.*;
 
 public class WordListTest extends Assert
 {
     @Test public void century() throws Exception
     {
-	try {
 	final WordList wordList = new WordList();
 	wordList.loadFromResource();
 	final RuWord[] w = wordList.findWord("век");
@@ -32,11 +33,22 @@ public class WordListTest extends Assert
 	assertEquals(w.length, 1);
 	final RuWord ww = w[0];
 	assertNotNull(ww);
-	System.out.println(ww.getLemma());
-	}
-	catch(Exception e)
+	assertEquals(ww.getLemma(), "ВЕК");
+	assertEquals(ww.getPos(), POS.NOUN);
+	assertNotNull(ww.getGram());
+	assertNotNull(ww.getGram().getGender());
+	assertEquals(ww.getGram().getGender(), GramAttr.Gender.MASCULINE);
+	final RuWord.Form[] forms = ww.getForms();
+	assertNotNull(forms);
+	assertTrue(forms.length > 0);
+	for(RuWord.Form f: forms)
 	{
-	    e.printStackTrace();
+	    assertNotNull(f.getGram());
+	    assertEquals(f.getGram().getGender(), GramAttr.Gender.MASCULINE);
+	    assertNotNull(f.getGram().getNumber());
+	    assertNotNull(f.getGram().getCase());
+	    assertNotNull(f.getWord());
+	    assertFalse(f.getWord().isEmpty());
 	}
     }
 }

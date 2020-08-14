@@ -77,6 +77,7 @@ public final class WordList
 		    l = new LinkedList();
 		    this.words.put(lemma, l);
 		}
+		w.init();
 		l.add(w);
 	    }
 	}
