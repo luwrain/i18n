@@ -1,6 +1,3 @@
 [
-{lemma: "ВЕК", pos="NOUN", gram="MASC", forms: [
-{gram: "SG,NOM", word: "ВЕК"}
-
-]}
+{lemma: "ВЕК", pos="NOUN", gram="MASC", forms: [ {gram: "SG,NOM", word: "ВЕК"}, {gram: "SG,GEN", word: "ВЕКА"}, {gram: "SG,DAT", word: "ВЕКУ"}, {gram: "SG,ACC", word: "ВЕК"}, {gram: "SG,INS", word: "ВЕКОМ"}, {gram: "SG,PRE", word: "ВЕКЕ"}, {gram: "PL,NOM", word: "ВЕКА"}, {gram: "PL,GEN", word: "ВЕКОВ"}, {gram: "PL,DAT", word: "ВЕКАМ"}, {gram: "PL,ACC", word: "ВЕКА"}, {gram: "PL,INS", word: "ВЕКАМИ"}, {gram: "PL,PRE", word: "ВЕКАХ"} ]}
 ]
