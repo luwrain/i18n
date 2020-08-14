@@ -2,3 +2,5 @@ build
 jar
 build.xml
 target
+TEST-*.xml
+
