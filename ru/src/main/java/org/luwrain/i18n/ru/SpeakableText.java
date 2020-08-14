@@ -54,7 +54,7 @@ final class SpeakableText
     private String processNatural(String text)
     {
 	NullCheck.notNull(text, "text");
-	final SpokenTextHook hook = new SpokenTextHook(text);
+	final SpeakableTextHook hook = new SpeakableTextHook(text);
 	luwrain.xRunHooks(HOOK_NATURAL_PRE, hook);
 	String t = hook.getText();
 	final Token[] tokens = ReaderTokenizer.tokenize(t);
@@ -67,7 +67,7 @@ final class SpeakableText
         private String processProgramming(String text)
     {
 	NullCheck.notNull(text, "text");
-	final SpokenTextHook hook = new SpokenTextHook(text);
+	final SpeakableTextHook hook = new SpeakableTextHook(text);
 	luwrain.xRunHooks(HOOK_PROGRAMMING_PRE, hook);
 	return hook.getText();
 	    }

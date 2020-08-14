@@ -18,11 +18,11 @@ package org.luwrain.i18n.ru;
 
 import org.luwrain.core.*;
 
-final class SpokenTextHook implements Luwrain.HookRunner
+final class SpeakableTextHook implements Luwrain.HookRunner
 {
     private String text = null;
 
-    SpokenTextHook(String text)
+    SpeakableTextHook(String text)
     {
 	NullCheck.notNull(text, "text");
 	this.text = text;
