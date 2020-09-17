@@ -42,6 +42,6 @@ public class Extension extends I18nExtensionBase
 	    Log.error(LANG_NAME, "unable to load properties from " + RESOURCE_PATH + ":" + e.getClass().getName() + ":" + e.getMessage());
 	    return;
 	}
-	ext.addLang(LANG_NAME, new Lang(staticStrings, chars));
+	ext.addLang(LANG_NAME, new Lang(luwrain, staticStrings, chars));
     }
 }

@@ -23,9 +23,9 @@ import org.luwrain.i18n.*;
 
 final class Lang extends LangBase
 {
-    Lang(Map<String, String> staticStrings, Map<String, String> chars)
+    Lang(Luwrain luwrain, Map<String, String> staticStrings, Map<String, String> chars)
     {
-	super("ro", staticStrings, chars);
+	super("ro", luwrain, staticStrings, chars);
     }
 
     @Override public String getNumberStr(int num, String entities)
