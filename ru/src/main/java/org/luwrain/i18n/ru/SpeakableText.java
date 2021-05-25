@@ -55,7 +55,7 @@ final class SpeakableText
     {
 	NullCheck.notNull(text, "text");
 	final SpeakableTextHook hook = new SpeakableTextHook(text);
-	luwrain.xRunHooks(HOOK_NATURAL_PRE, hook);
+	luwrain.runHooks(HOOK_NATURAL_PRE, hook);
 	String t = hook.getText();
 	final Token[] tokens = ReaderTokenizer.tokenize(t);
 	final Object tokensRes = new ProviderHook(luwrain).run(HOOK_NATURAL, new Object[]{ScriptUtils.createArray(tokens)});
@@ -68,7 +68,7 @@ final class SpeakableText
     {
 	NullCheck.notNull(text, "text");
 	final SpeakableTextHook hook = new SpeakableTextHook(text);
-	luwrain.xRunHooks(HOOK_PROGRAMMING_PRE, hook);
+	luwrain.runHooks(HOOK_PROGRAMMING_PRE, hook);
 	return hook.getText();
 	    }
 
