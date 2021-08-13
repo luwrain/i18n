@@ -1,5 +1,5 @@
 /*
-   Copyright 2012-2020 Michael Pozhidaev <msp@luwrain.org>
+   Copyright 2012-2021 Michael Pozhidaev <msp@luwrain.org>
 
    This file is part of LUWRAIN.
 
@@ -18,22 +18,24 @@ package org.luwrain.i18n.ru;
 
 import org.luwrain.core.*;
 import org.luwrain.core.Luwrain.SpeakableTextType;
-import org.luwrain.script.*;
+
 import org.luwrain.nlp.ru.*;
+import org.luwrain.script2.ScriptUtils;
 import org.luwrain.script.hooks.*;
 
 final class SpeakableText
 {
-    static private final String HOOK_NATURAL_PRE = "luwrain.i18n.ru.speakable.natural.pre";
-    static private final String HOOK_NATURAL = "luwrain.i18n.ru.speakable.natural";
-    static private final String HOOK_PROGRAMMING_PRE = "luwrain.i18n.ru.speech.programming.pre";
+    static private final String
+	HOOK_NATURAL_PRE = "luwrain.i18n.ru.speakable.natural.pre",
+	HOOK_NATURAL = "luwrain.i18n.ru.speakable.natural",
+	HOOK_PROGRAMMING_PRE = "luwrain.i18n.ru.speech.programming.pre";
 
-    private final Luwrain luwrain;
+    private final HookContainer hookContainer;
 
-    SpeakableText(Luwrain luwrain)
+    SpeakableText(HookContainer hookContainer)
     {
-	NullCheck.notNull(luwrain, "luwrain");
-	this.luwrain = luwrain;
+	NullCheck.notNull(hookContainer, "hookContainer");
+	this.hookContainer = hookContainer;
     }
 
     String process(String text, SpeakableTextType type)
@@ -45,7 +47,7 @@ final class SpeakableText
 	case NATURAL:
 	    return processNatural(text);
 	case PROGRAMMING:
-	    	    return processProgramming(text);
+	    return processProgramming(text);
 	default:
 	    return text;
 	}
@@ -54,22 +56,17 @@ final class SpeakableText
     private String processNatural(String text)
     {
 	NullCheck.notNull(text, "text");
-	final SpeakableTextHook hook = new SpeakableTextHook(text);
-	luwrain.runHooks(HOOK_NATURAL_PRE, hook);
-	String t = hook.getText();
+	final String t = new TransformerHook(hookContainer).run(HOOK_NATURAL_PRE, text).toString();
 	final Token[] tokens = ReaderTokenizer.tokenize(t);
-	final Object tokensRes = new ProviderHook(luwrain).run(HOOK_NATURAL, new Object[]{ScriptUtils.createArray(tokens)});
+	final Object tokensRes = new ProviderHook(hookContainer).run(HOOK_NATURAL, new Object[]{ScriptUtils.getArray(tokens)});
 	if (tokensRes != null && tokensRes.toString() != null)
-	    t = tokensRes.toString();
+	    return tokensRes.toString();
 	return t;
     }
 
-        private String processProgramming(String text)
+    private String processProgramming(String text)
     {
 	NullCheck.notNull(text, "text");
-	final SpeakableTextHook hook = new SpeakableTextHook(text);
-	luwrain.runHooks(HOOK_PROGRAMMING_PRE, hook);
-	return hook.getText();
-	    }
-
+	return new TransformerHook(hookContainer).run(HOOK_PROGRAMMING_PRE, text).toString();
+    }
 }

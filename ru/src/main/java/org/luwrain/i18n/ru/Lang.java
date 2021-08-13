@@ -1,5 +1,5 @@
 /*
-   Copyright 2012-2019 Michael Pozhidaev <msp@luwrain.org>
+   Copyright 2012-2021 Michael Pozhidaev <msp@luwrain.org>
 
    This file is part of LUWRAIN.
 
@@ -19,11 +19,13 @@ package org.luwrain.i18n.ru;
 import java.util.*;
 
 import org.luwrain.core.*;
+import org.luwrain.core.script2.*;
 import org.luwrain.i18n.*;
 import org.luwrain.nlp.*;
 
 final class Lang extends LangBase
 {
+    private final ScriptCore  scriptCore;
     private final SpeakableText speakableText;
     private final WordList wordsList = new WordList();
 
@@ -31,6 +33,8 @@ final class Lang extends LangBase
     {
 	super("ru", luwrain, staticStrings, chars);
 	NullCheck.notNull(luwrain, "luwrain");
+	this.scriptCore = new ScriptCore(luwrain);
+
 	this.speakableText = new SpeakableText(luwrain);
 	this.wordsList.loadFromResource();
     }
