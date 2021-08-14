@@ -28,7 +28,7 @@ final class SpeakableText
     static private final String
 	HOOK_NATURAL_PRE = "luwrain.i18n.ru.speakable.natural.pre",
 	HOOK_NATURAL = "luwrain.i18n.ru.speakable.natural",
-	HOOK_PROGRAMMING_PRE = "luwrain.i18n.ru.speech.programming.pre";
+	HOOK_PROGRAMMING_PRE = "luwrain.i18n.ru.speakable.programming.pre";
 
     private final HookContainer hookContainer;
 
@@ -56,12 +56,15 @@ final class SpeakableText
     private String processNatural(String text)
     {
 	NullCheck.notNull(text, "text");
+	/*
 	final String t = new TransformerHook(hookContainer).run(HOOK_NATURAL_PRE, text).toString();
 	final Token[] tokens = ReaderTokenizer.tokenize(t);
 	final Object tokensRes = new ProviderHook(hookContainer).run(HOOK_NATURAL, new Object[]{ScriptUtils.getArray(tokens)});
 	if (tokensRes != null && tokensRes.toString() != null)
 	    return tokensRes.toString();
 	return t;
+	*/
+	return text;
     }
 
     private String processProgramming(String text)

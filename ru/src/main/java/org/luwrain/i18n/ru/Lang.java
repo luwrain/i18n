@@ -25,6 +25,8 @@ import org.luwrain.nlp.*;
 
 final class Lang extends LangBase
 {
+    static final String LOG_COMPONENT = "ru";
+
     private final ScriptCore  scriptCore;
     private final SpeakableText speakableText;
     private final WordList wordsList = new WordList();
@@ -34,8 +36,16 @@ final class Lang extends LangBase
 	super("ru", luwrain, staticStrings, chars);
 	NullCheck.notNull(luwrain, "luwrain");
 	this.scriptCore = new ScriptCore(luwrain);
-
-	this.speakableText = new SpeakableText(luwrain);
+	Log.debug(LOG_COMPONENT, "Loading Russian");
+	for(ScriptFile s: luwrain.getScriptFilesList("ru"))
+	    try {
+		scriptCore.load(s);
+	    }
+	    catch(Throwable e)
+	    {
+		Log.error(LOG_COMPONENT, "unable to load " + s.toString() + ": " + e.getClass().getName() + ": " + e.getMessage());
+	    }
+	this.speakableText = new SpeakableText(scriptCore);
 	this.wordsList.loadFromResource();
     }
 
