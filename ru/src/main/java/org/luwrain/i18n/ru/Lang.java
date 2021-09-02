@@ -19,7 +19,7 @@ package org.luwrain.i18n.ru;
 import java.util.*;
 
 import org.luwrain.core.*;
-import org.luwrain.core.script2.*;
+import org.luwrain.script.core.*;
 import org.luwrain.i18n.*;
 import org.luwrain.nlp.*;
 
