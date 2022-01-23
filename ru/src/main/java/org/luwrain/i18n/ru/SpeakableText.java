@@ -22,20 +22,21 @@ import org.luwrain.core.Luwrain.SpeakableTextType;
 import org.luwrain.nlp.ru.*;
 import org.luwrain.script2.ScriptUtils;
 import org.luwrain.script.hooks.*;
+import org.luwrain.inlandes.*;
 
 final class SpeakableText
 {
     static private final String
-	HOOK_NATURAL_PRE = "luwrain.i18n.ru.speakable.natural.pre",
-	HOOK_NATURAL = "luwrain.i18n.ru.speakable.natural",
 	HOOK_PROGRAMMING_PRE = "luwrain.i18n.ru.speakable.programming.pre";
 
     private final HookContainer hookContainer;
+    private final Inlandes inlandes = new Inlandes();
 
     SpeakableText(HookContainer hookContainer)
     {
 	NullCheck.notNull(hookContainer, "hookContainer");
 	this.hookContainer = hookContainer;
+	this.inlandes.loadStandardLibrary();
     }
 
     String process(String text, SpeakableTextType type)
@@ -56,14 +57,8 @@ final class SpeakableText
     private String processNatural(String text)
     {
 	NullCheck.notNull(text, "text");
-	/*
-	final String t = new TransformerHook(hookContainer).run(HOOK_NATURAL_PRE, text).toString();
-	final Token[] tokens = ReaderTokenizer.tokenize(t);
-	final Object tokensRes = new ProviderHook(hookContainer).run(HOOK_NATURAL, new Object[]{ScriptUtils.getArray(tokens)});
-	if (tokensRes != null && tokensRes.toString() != null)
-	    return tokensRes.toString();
-	return t;
-	*/
+	synchronized(inlandes) {
+	};
 	return text;
     }
 
