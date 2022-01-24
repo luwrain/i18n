@@ -1,5 +1,5 @@
 /*
-   Copyright 2012-2021 Michael Pozhidaev <msp@luwrain.org>
+   Copyright 2012-2022 Michael Pozhidaev <msp@luwrain.org>
 
    This file is part of LUWRAIN.
 
@@ -16,17 +16,18 @@
 
 package org.luwrain.i18n.ru;
 
+import java.io.*;
+
 import org.luwrain.core.*;
 import org.luwrain.core.Luwrain.SpeakableTextType;
-
-import org.luwrain.nlp.ru.*;
-import org.luwrain.script2.ScriptUtils;
 import org.luwrain.script.hooks.*;
 import org.luwrain.inlandes.*;
+import static org.luwrain.inlandes.Token.*;
 
 final class SpeakableText
 {
     static private final String
+	LOG_COMPONENT = Lang.LOG_COMPONENT,
 	HOOK_PROGRAMMING_PRE = "luwrain.i18n.ru.speakable.programming.pre";
 
     private final HookContainer hookContainer;
@@ -37,6 +38,7 @@ final class SpeakableText
 	NullCheck.notNull(hookContainer, "hookContainer");
 	this.hookContainer = hookContainer;
 	this.inlandes.loadStandardLibrary();
+	loadRules();
     }
 
     String process(String text, SpeakableTextType type)
@@ -58,13 +60,35 @@ final class SpeakableText
     {
 	NullCheck.notNull(text, "text");
 	synchronized(inlandes) {
-	};
-	return text;
+	    return concat(inlandes.process(text));
+	}
     }
 
     private String processProgramming(String text)
     {
 	NullCheck.notNull(text, "text");
 	return new TransformerHook(hookContainer).run(HOOK_PROGRAMMING_PRE, text).toString();
+    }
+
+    private void loadRules()
+    {
+	try {
+	    try (final BufferedReader r = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("rules"), "UTF-8"))) {
+		String line = r.readLine();
+		final StringBuilder b = new StringBuilder();
+		while (line != null)
+		{
+		    final String l = line.trim();
+		    if (!l.isEmpty() && l.charAt(0) != '#')
+			b.append(line).append(System.lineSeparator());
+		    line = r.readLine();
+		}
+		inlandes.loadText(new String(b));
+	    }
+	}
+	catch(Throwable e)
+	{
+	    Log.error(LOG_COMPONENT, "unable to load Inlandes rules: " + e.getClass().getName() + ": " + e.getMessage());
+	}
     }
 }
