@@ -83,7 +83,7 @@ final class SpeakableText
 			b.append(line).append(System.lineSeparator());
 		    line = r.readLine();
 		}
-		inlandes.loadText(new String(b));
+		inlandes.loadRules(new String(b));
 	    }
 	}
 	catch(Throwable e)
