@@ -60,7 +60,7 @@ final class SpeakableText
     {
 	NullCheck.notNull(text, "text");
 	synchronized(inlandes) {
-	    return concat(inlandes.process(text));
+	    return concatText(inlandes.process(text));
 	}
     }
 
