@@ -20,15 +20,16 @@ import java.io.*;
 
 import org.luwrain.core.*;
 import org.luwrain.core.Luwrain.SpeakableTextType;
-import org.luwrain.script.hooks.*;
 import org.luwrain.inlandes.*;
+
 import static org.luwrain.inlandes.Token.*;
+import static org.luwrain.script.Hooks.*;
 
 final class SpeakableText
 {
     static private final String
 	LOG_COMPONENT = Lang.LOG_COMPONENT,
-	HOOK_PROGRAMMING_PRE = "luwrain.i18n.ru.speakable.programming.pre";
+	HOOK_PROGRAMMING = "luwrain.i18n.ru.speakable.programming";
 
     private final HookContainer hookContainer;
     private final Inlandes inlandes = new Inlandes();
@@ -43,14 +44,12 @@ final class SpeakableText
 
     String process(String text, SpeakableTextType type)
     {
-	NullCheck.notNull(text, "text");
-	NullCheck.notNull(type, "type");
 	switch(type)
 	{
 	case NATURAL:
 	    return processNatural(text);
 	case PROGRAMMING:
-	    return processProgramming(text);
+	    return transformer(hookContainer, HOOK_PROGRAMMING, text).toString();
 	default:
 	    return text;
 	}
@@ -58,16 +57,9 @@ final class SpeakableText
 
     private String processNatural(String text)
     {
-	NullCheck.notNull(text, "text");
 	synchronized(inlandes) {
 	    return concatText(inlandes.process(text));
 	}
-    }
-
-    private String processProgramming(String text)
-    {
-	NullCheck.notNull(text, "text");
-	return new TransformerHook(hookContainer).run(HOOK_PROGRAMMING_PRE, text).toString();
     }
 
     private void loadRules()
