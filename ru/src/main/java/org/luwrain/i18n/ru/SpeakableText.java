@@ -1,5 +1,5 @@
 /*
-   Copyright 2012-2022 Michael Pozhidaev <msp@luwrain.org>
+   Copyright 2012-2024 Michael Pozhidaev <msp@luwrain.org>
 
    This file is part of LUWRAIN.
 
@@ -36,7 +36,6 @@ final class SpeakableText
 
     SpeakableText(HookContainer hookContainer)
     {
-	NullCheck.notNull(hookContainer, "hookContainer");
 	this.hookContainer = hookContainer;
 	this.inlandes.loadStandardLibrary();
 	loadRules();
